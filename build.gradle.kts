@@ -8,6 +8,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jetbrains.compose.hot-reload")
 
+    id("com.gradleup.shadow")
     id("org.jmailen.kotlinter")
 }
 
@@ -48,5 +49,15 @@ kotlin {
     jvmToolchain(21)
     sourceSets.main {
         kotlin.srcDir("build/generated/compose/resourceGenerator/kotlin")
+    }
+}
+
+tasks.shadowJar {
+    archiveBaseName = "ntrsv"
+    archiveVersion = ""
+    archiveClassifier = ""
+    mergeServiceFiles()
+    manifest {
+        attributes["Main-Class"] = "me.varoa.ntrsv.MainKt"
     }
 }

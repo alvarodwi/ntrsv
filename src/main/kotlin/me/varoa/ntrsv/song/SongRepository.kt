@@ -18,13 +18,26 @@ class SongRepository {
     }
 
     private fun loadExternal(): String? {
-        // Resolves to the directory containing the .jar / executable
-        val externalFile = File(
-            System.getProperty("compose.application.resources.dir")
-                ?: System.getProperty("user.dir")
-        ).resolve("songs.json")
+        val searchDir = when {
+            // Native packager (dmg/msi/deb)
+            System.getProperty("compose.application.resources.dir") != null ->
+                File(System.getProperty("compose.application.resources.dir"))
 
-        return if (externalFile.exists()) externalFile.readText() else null
+            // Fat JAR — resolve relative to the jar file itself
+            else -> runCatching {
+                File(
+                    SongRepository::class.java
+                        .protectionDomain
+                        .codeSource
+                        .location
+                        .toURI()
+                ).parentFile
+            }.getOrNull()
+        } ?: return null
+
+        return searchDir.resolve("songs.json")
+            .takeIf { it.exists() }
+            ?.readText()
     }
 
     private suspend fun loadBundled(): String {
