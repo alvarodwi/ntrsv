@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { useLaneSync } from '@/composables/useLaneSync';
-import { useRandomizerStore } from '@/stores/randomizerStore'
-
 
 const lane = useLaneSync()
 </script>
