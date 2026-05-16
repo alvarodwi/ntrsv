@@ -94,7 +94,14 @@
   dependencies:
     tslib "^2.4.0"
 
-"@iconify/types@^2.0.0":
+"@iconify-json/ph@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@iconify-json/ph/-/ph-1.2.2.tgz#eac734e80f4639df6ade990690a825540b4259c4"
+  integrity sha512-PgkEZNtqa8hBGjHXQa4pMwZa93hmfu8FUSjs/nv4oUU6yLsgv+gh9nu28Kqi8Fz9CCVu4hj1MZs9/60J57IzFw==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify/types@*", "@iconify/types@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@iconify/types/-/types-2.0.0.tgz#ab0e9ea681d6c8a1214f30cd741fe3a20cc57f57"
   integrity sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==
@@ -435,14 +442,14 @@
     gzip-size "^6.0.0"
     sirv "^3.0.2"
 
-"@unocss/preset-attributify@66.6.8":
+"@unocss/preset-attributify@66.6.8", "@unocss/preset-attributify@^66.6.8":
   version "66.6.8"
   resolved "https://registry.yarnpkg.com/@unocss/preset-attributify/-/preset-attributify-66.6.8.tgz#ad0b5c0ddda4944b1d77e02d62a8cf759b117a5a"
   integrity sha512-YxyRSF5rq0WbY8kCG0gpj3DSXPL89QGxZeqABmceCzPJbXJBBHEJz/pgBPmzSa2Ziulgs0AEkHzWFPfpb2uGTA==
   dependencies:
     "@unocss/core" "66.6.8"
 
-"@unocss/preset-icons@66.6.8":
+"@unocss/preset-icons@66.6.8", "@unocss/preset-icons@^66.6.8":
   version "66.6.8"
   resolved "https://registry.yarnpkg.com/@unocss/preset-icons/-/preset-icons-66.6.8.tgz#5d378b1029d5cebb11d167c3cbe2c753433198d7"
   integrity sha512-+zD5TNGZIXvVOMcvDIYaTXinffpDMERGj6Ch8WTtJluA6qHHBvRuFexoU2bY8nF1r0HZkYzNT9C+RujFSP+6TA==
@@ -475,7 +482,7 @@
     "@unocss/core" "66.6.8"
     "@unocss/rule-utils" "66.6.8"
 
-"@unocss/preset-uno@66.6.8":
+"@unocss/preset-uno@66.6.8", "@unocss/preset-uno@^66.6.8":
   version "66.6.8"
   resolved "https://registry.yarnpkg.com/@unocss/preset-uno/-/preset-uno-66.6.8.tgz#0d23bb92a75913d56b5bd83826705ff3a05bed96"
   integrity sha512-z01Rw/rBuahRulwQRnobUFnGqyU+UenOLz72KGn4p0Yh8gBC44fPlNHsOWA0TNediHRJg33HptX4kx16HCVWDg==
@@ -517,6 +524,11 @@
     "@unocss/core" "66.6.8"
     "@unocss/preset-wind3" "66.6.8"
 
+"@unocss/reset@^66.6.8":
+  version "66.6.8"
+  resolved "https://registry.yarnpkg.com/@unocss/reset/-/reset-66.6.8.tgz#99207ffc9af92f2fdf1bebe0e870ee727d41ac12"
+  integrity sha512-H+YP3ltizUiPO9FzFgFhv8WGsefO7fTgT1If1/9ritPDqZlvzTqMmjelhcq8D8MGoQ1RQBUvtkZ5HJoKVY0Tgw==
+
 "@unocss/rule-utils@66.6.8":
   version "66.6.8"
   resolved "https://registry.yarnpkg.com/@unocss/rule-utils/-/rule-utils-66.6.8.tgz#813edb56b8dda572e14e2d2419ce850c803b3a7d"
@@ -557,7 +569,7 @@
   dependencies:
     "@unocss/core" "66.6.8"
 
-"@unocss/vite@66.6.8":
+"@unocss/vite@66.6.8", "@unocss/vite@^66.6.8":
   version "66.6.8"
   resolved "https://registry.yarnpkg.com/@unocss/vite/-/vite-66.6.8.tgz#045daab058f99b4c4f534130a6f6a81772541c16"
   integrity sha512-bXfEnEHdW7zTGLIYU16MsfKSFy3Q47Pevhrt5f9fOGzC4UI1JGkkoQSfoFpXZGliDrhoSFK4Msz9Jt43Ta4j+w==
