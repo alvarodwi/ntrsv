@@ -81,7 +81,7 @@ export async function loadSongs(): Promise<Song[]> {
         return normalizeSongs(override)
     }
 
-    const res = await fetch('/songs.json')
+    const res = await fetch(import.meta.env.BASE_URL + 'songs.json')
     const raw = await res.json()
     return normalizeSongs(raw)
 }
