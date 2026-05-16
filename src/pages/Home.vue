@@ -7,7 +7,7 @@ const activeTab = ref<'randomizer' | 'config'>('randomizer')
 
 function openLaneCover() {
   window.open(
-    '/#/lane',
+    import.meta.env.BASE_URL + '#/lane',
     'lane-cover',
     'width=640,height=160'
   )
