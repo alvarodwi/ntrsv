@@ -31,44 +31,14 @@ export const useFilterStore = defineStore('filters', {
         : this.albums.add(album)
     },
 
-    applyRating(n: number) {
-      const isFullRange =
-        this.minRating === 1 && this.maxRating === 19
+    setMinRating(v: number) {
+      this.minRating = v
+      if (this.maxRating < v) this.maxRating = v
+    },
 
-      const isSameRangeClick =
-        this.lastClicked === n &&
-        this.minRating === n &&
-        this.maxRating === n
-
-      if (isFullRange) {
-        this.minRating = 1
-        this.maxRating = n
-        this.lastClicked = n
-        return
-      }
-
-      if (isSameRangeClick) {
-        this.minRating = 1
-        this.maxRating = 19
-        this.lastClicked = null
-        return
-      }
-
-      if (this.lastClicked === n) {
-        this.minRating = n
-        this.maxRating = n
-        return
-      }
-
-      const mid = (this.minRating + this.maxRating) / 2
-
-      if (n < mid) {
-        this.minRating = n
-      } else {
-        this.maxRating = n
-      }
-
-      this.lastClicked = n
+    setMaxRating(v: number) {
+      this.maxRating = v
+      if (this.minRating > v) this.minRating = v
     },
   },
 })
