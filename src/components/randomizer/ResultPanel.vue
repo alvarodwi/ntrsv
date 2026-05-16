@@ -7,7 +7,7 @@ const lane = useLaneSync()
 <template>
     <div class="h-full flex items-center justify-center p-4">
         <!-- EMPTY STATE -->
-        <div v-if="!lane.selected" class="text-center text-slate-500">
+        <div v-if="!lane.selected.value" class="text-center text-slate-500">
             Hit Randomize
         </div>
 

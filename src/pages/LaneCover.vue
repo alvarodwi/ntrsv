@@ -47,7 +47,7 @@ function randomize() {
     <!-- CONTENT -->
     <div class="flex-1 px-3 py-2 flex flex-col justify-center">
       <!-- EMPTY -->
-      <div v-if="!lane.selected" class="opacity-50 text-center">
+      <div v-if="!lane.selected.value" class="opacity-50 text-center">
         No selection yet
       </div>
 
