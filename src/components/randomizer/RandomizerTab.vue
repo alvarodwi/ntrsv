@@ -17,6 +17,7 @@ function randomize() {
     if (!pick) return
 
     lane.emitSelection(pick.song.id, pick.difficulty)
+    lane.emitFilterSync()
 }
 </script>
 

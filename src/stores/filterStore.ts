@@ -9,7 +9,6 @@ export const useFilterStore = defineStore('filters', {
 
     minRating: 1,
     maxRating: 19,
-    lastClicked: null as number | null,
   }),
 
   actions: {
