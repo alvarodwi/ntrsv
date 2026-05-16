@@ -503,7 +503,7 @@
     "@unocss/core" "66.6.8"
     "@unocss/rule-utils" "66.6.8"
 
-"@unocss/preset-uno@66.6.8", "@unocss/preset-uno@^66.6.8":
+"@unocss/preset-uno@66.6.8":
   version "66.6.8"
   resolved "https://registry.yarnpkg.com/@unocss/preset-uno/-/preset-uno-66.6.8.tgz#0d23bb92a75913d56b5bd83826705ff3a05bed96"
   integrity sha512-z01Rw/rBuahRulwQRnobUFnGqyU+UenOLz72KGn4p0Yh8gBC44fPlNHsOWA0TNediHRJg33HptX4kx16HCVWDg==
@@ -511,7 +511,7 @@
     "@unocss/core" "66.6.8"
     "@unocss/preset-wind3" "66.6.8"
 
-"@unocss/preset-web-fonts@66.6.8":
+"@unocss/preset-web-fonts@66.6.8", "@unocss/preset-web-fonts@^66.6.8":
   version "66.6.8"
   resolved "https://registry.yarnpkg.com/@unocss/preset-web-fonts/-/preset-web-fonts-66.6.8.tgz#58a304173d56de69a18d60fd53e985062453bd4a"
   integrity sha512-AgEHO8h0AkeOT57AOE9PS7dJOa5Rfr0gIyz/FxA7vJ/FwgQL70uX+bRW8kmoH81zcjo5xBP2IX3Z6A8VAOo3Vw==
@@ -519,7 +519,7 @@
     "@unocss/core" "66.6.8"
     ofetch "^1.5.1"
 
-"@unocss/preset-wind3@66.6.8":
+"@unocss/preset-wind3@66.6.8", "@unocss/preset-wind3@^66.6.8":
   version "66.6.8"
   resolved "https://registry.yarnpkg.com/@unocss/preset-wind3/-/preset-wind3-66.6.8.tgz#637b3f200138307e10fcafa8ebc46a6a8e4b613a"
   integrity sha512-WNTeDAYCatmEFjBJ4itUmz0TElBvNFqjh5i2/ianDJO/vkd+IYUb03jEPLUppVlvMhy8bN8AunP0AtW3Xf2psA==
@@ -1470,6 +1470,16 @@ postcss@^8.5.14:
     nanoid "^3.3.11"
     picocolors "^1.1.1"
     source-map-js "^1.2.1"
+
+prettier-plugin-tailwindcss@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.8.0.tgz#766469c006717d6342cdf48eda262e8bfeabfa95"
+  integrity sha512-V8ITGH87yuBDF6JpEZTOVlUz/saAwqb8f3HRgUj8Lh+tGCcrmorhsLpYqzygwFwK0PE2Ib6Mv3M7T/uE2tZV1g==
+
+prettier@3.8.3:
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.8.3.tgz#560f2de55bf01b4c0503bc629d5df99b9a1d09b0"
+  integrity sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==
 
 quansync@^0.2.11:
   version "0.2.11"

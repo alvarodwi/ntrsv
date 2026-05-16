@@ -3,8 +3,7 @@ import { createPinia } from 'pinia'
 import { router } from '@/router'
 
 import 'uno.css'
-import '@unocss/reset/sanitize/sanitize.css'
-import '@unocss/reset/sanitize/assets.css'
+import '@unocss/reset/tailwind-v4.css'
 
 import App from './App.vue'
 

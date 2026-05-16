@@ -4,6 +4,7 @@ import {
   presetUno,
   presetIcons,
   presetAttributify,
+  presetWebFonts,
 } from 'unocss'
 
 export default defineConfig({
@@ -13,6 +14,13 @@ export default defineConfig({
     presetIcons({
       scale: 1.1,
       warn: true,
+    }),
+    presetWebFonts({
+      provider: 'google',
+      fonts: {
+        display: 'Funnel Display',
+        ui: 'Funnel Sans',
+      },
     }),
   ],
 })

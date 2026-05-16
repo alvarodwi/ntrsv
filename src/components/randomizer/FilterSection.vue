@@ -1,11 +1,11 @@
 <!-- components/FilterSection.vue -->
 <script setup lang="ts">
-defineProps<{ title: string }>()
+defineProps<{ title: string }>();
 </script>
 
 <template>
   <div class="flex flex-col gap-2">
-    <h3 class="text-xs md:text-sm opacity-70">
+    <h3 class="text-xs opacity-70 md:text-sm">
       {{ title }}
     </h3>
 
