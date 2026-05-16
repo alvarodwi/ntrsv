@@ -15,24 +15,60 @@ function openLaneCover() {
 </script>
 
 <template>
-  <div class="p-4 h-screen">
-    <div class="flex gap-2 mb-4">
-      <button @click="activeTab = 'randomizer'">
-        Randomizer
-      </button>
+  <div class="min-h-screen flex flex-col">
+    <!-- ───────────────────────────────────────────── -->
+    <!-- Top Bar -->
+    <!-- ───────────────────────────────────────────── -->
+    <header class="relative flex items-center justify-center p-4">
+      <!-- Desktop-only tab switcher -->
+      <div class="hidden md:flex absolute left-4 gap-2">
+        <button
+          @click="activeTab = 'randomizer'"
+        >
+          Randomizer
+        </button>
 
-      <button @click="activeTab = 'config'">
-        Songs Config
-      </button>
-    </div>
+        <button
+          @click="activeTab = 'config'"
+        >
+          Songs Config
+        </button>
+      </div>
 
-    <div>
-      <button class="bg-slate-700 text-white p-2 rounded" @click="openLaneCover">
-        Open Lane Cover
-      </button>
-    </div>
+      <!-- Always visible -->
+      <div class="hidden md:block">
+        <button
+          @click="openLaneCover"
+        >
+          Open Lane Cover
+        </button>
+      </div>
 
-    <RandomizerTab v-if="activeTab === 'randomizer'" />
-    <ConfigTab v-else />
+      <!-- Mobile title -->
+      <div class="md:hidden">
+        <h1>
+          ntrsv
+        </h1>
+      </div>
+    </header>
+
+    <!-- ───────────────────────────────────────────── -->
+    <!-- Main Content -->
+    <!-- ───────────────────────────────────────────── -->
+    <main class="flex-1 flex items-center justify-center p-4">
+      <!-- Card container -->
+      <div class="w-full max-w-7xl">
+        <!-- Mobile: randomizer only -->
+        <RandomizerTab
+          v-if="activeTab === 'randomizer'"
+        />
+
+        <!-- Desktop-only config -->
+        <ConfigTab
+          v-else
+          class="hidden md:block"
+        />
+      </div>
+    </main>
   </div>
 </template>

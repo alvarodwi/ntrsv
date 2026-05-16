@@ -2,7 +2,6 @@
 import { onMounted, computed } from 'vue'
 import { useSongStore } from '@/stores/songStore'
 import { useFilterStore } from '@/stores/filterStore'
-import { useRandomizerStore } from '@/stores/randomizerStore'
 import {
     loadSongs,
 } from '@/services/songService'
@@ -11,7 +10,6 @@ import FilterSection from '@/components/randomizer/FilterSection.vue'
 
 const songs = useSongStore()
 const filter = useFilterStore()
-const randomizer = useRandomizerStore()
 
 async function reloadSongs() {
     songs.setSongs(await loadSongs())
@@ -46,11 +44,21 @@ const allAlbums = computed(() =>
             </div>
         </FilterSection>
 
-        <FilterSection :title="`Rating: ${filter.minRating} - ${filter.maxRating}`">
-            <input type="range" min="1" max="19" v-model.number="filter.minRating" />
-            <input type="range" min="1" max="19" v-model.number="filter.maxRating" />
-        </FilterSection>
+        <FilterSection title="Rating">
+            <div class="flex flex-wrap gap-1">
+                <button v-for="n in 19" :key="n" @click="filter.applyRating(n)" class="px-2 py-1 rounded" :class="[
+                    n >= filter.minRating && n <= filter.maxRating
+                        ? 'bg-yellow-500'
+                        : 'bg-gray-600'
+                ]">
+                    ★
+                </button>
+            </div>
 
+            <p class="text-xs opacity-50">
+                {{ filter.minRating }} – {{ filter.maxRating }}
+            </p>
+        </FilterSection>
         <FilterSection title="Tags">
             <div class="flex flex-wrap gap-2">
                 <button v-for="tag in allTags" :key="tag" @click="filter.toggleTag(tag)"
@@ -68,9 +76,5 @@ const allAlbums = computed(() =>
                 </button>
             </div>
         </FilterSection>
-
-        <button class="mt-auto bg-red-500 p-2 rounded text-white" @click="randomizer.randomize()">
-            Randomize
-        </button>
     </div>
 </template>

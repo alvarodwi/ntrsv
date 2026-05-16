@@ -9,6 +9,7 @@ export const useFilterStore = defineStore('filters', {
 
     minRating: 1,
     maxRating: 19,
+    lastClicked: null as number | null,
   }),
 
   actions: {
@@ -28,6 +29,46 @@ export const useFilterStore = defineStore('filters', {
       this.albums.has(album)
         ? this.albums.delete(album)
         : this.albums.add(album)
+    },
+
+    applyRating(n: number) {
+      const isFullRange =
+        this.minRating === 1 && this.maxRating === 19
+
+      const isSameRangeClick =
+        this.lastClicked === n &&
+        this.minRating === n &&
+        this.maxRating === n
+
+      if (isFullRange) {
+        this.minRating = 1
+        this.maxRating = n
+        this.lastClicked = n
+        return
+      }
+
+      if (isSameRangeClick) {
+        this.minRating = 1
+        this.maxRating = 19
+        this.lastClicked = null
+        return
+      }
+
+      if (this.lastClicked === n) {
+        this.minRating = n
+        this.maxRating = n
+        return
+      }
+
+      const mid = (this.minRating + this.maxRating) / 2
+
+      if (n < mid) {
+        this.minRating = n
+      } else {
+        this.maxRating = n
+      }
+
+      this.lastClicked = n
     },
   },
 })
