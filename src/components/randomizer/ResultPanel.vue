@@ -6,19 +6,39 @@ const lane = useLaneSync();
 const selectedDifficultyClass = (diff: string) => {
   switch (diff.toLowerCase()) {
     case "casual":
-      return "scale-[1.1] border-[#9eac53] bg-[#9eac53]/60 shadow-[0_4px_14px_rgba(158,172,83,0.25)]";
+      return `
+        scale-[1.06] -translate-y-1
+        border-[#9eac53]/60
+        bg-[#9eac53]/12
+        shadow-[0_0_0_1px_rgba(158,172,83,0.15),0_8px_24px_rgba(158,172,83,0.18)]
+      `;
 
     case "normal":
-      return "scale-[1.1] border-[#c78a03] bg-[#c78a03]/60 shadow-[0_4px_14px_rgba(199,138,3,0.25)]";
+      return `
+        scale-[1.06] -translate-y-1
+        border-[#c78a03]/60
+        bg-[#c78a03]/12
+        shadow-[0_0_0_1px_rgba(199,138,3,0.15),0_8px_24px_rgba(199,138,3,0.18)]
+      `;
 
     case "hard":
-      return "scale-[1.1] border-[#f03055] bg-[#f03055]/60 shadow-[0_4px_14px_rgba(240,48,85,0.25)]";
+      return `
+        scale-[1.06] -translate-y-1
+        border-[#f03055]/60
+        bg-[#f03055]/12
+        shadow-[0_0_0_1px_rgba(240,48,85,0.15),0_8px_24px_rgba(240,48,85,0.18)]
+      `;
 
     case "expert":
-      return "scale-[1.1] border-[#cc7dfa] bg-[#cc7dfa]/60 shadow-[0_4px_14px_rgba(204,125,250,0.25)]";
+      return `
+        scale-[1.06] -translate-y-1
+        border-[#cc7dfa]/60
+        bg-[#cc7dfa]/12
+        shadow-[0_0_0_1px_rgba(204,125,250,0.15),0_8px_24px_rgba(204,125,250,0.18)]
+      `;
 
     default:
-      return " border-gold bg-gold/20";
+      return "border-gold bg-gold/10";
   }
 };
 
@@ -59,115 +79,127 @@ const selectedDifficultyText = (diff: string) => {
     </div>
 
     <!-- RESULT STATE -->
-    <div
+    <Transition
       v-else
-      class="flex w-full max-w-xl flex-col items-center gap-8 text-center"
+      mode="out-in"
+      enter-active-class="transition-[opacity,transform] duration-200 ease-out"
+      enter-from-class="opacity-0 translate-y-2 scale-[0.985]"
+      enter-to-class="opacity-100 translate-y-0 scale-100"
+      leave-active-class="transition-[opacity,transform] duration-100 ease-in"
+      leave-from-class="opacity-100 translate-y-0 scale-100"
+      leave-to-class="opacity-0 -translate-y-1 scale-[0.995]"
     >
-      <!-- song info -->
-      <div class="flex flex-col gap-2">
-        <div
-          class="text-[0.7rem] tracking-[0.25em] uppercase"
-          :class="selectedDifficultyText(lane.selected.value.difficulty)"
-        >
-          Selected Track
-        </div>
-
-        <h1
-          class="text-charcoal text-2xl leading-tight font-black font-bold sm:text-3xl md:text-4xl"
-        >
-          {{ lane.selected.value?.song.title }}
-        </h1>
-
-        <div class="flex flex-col items-center gap-2 text-center">
-          <!-- mobile -->
-          <div class="text-charcoal/60 max-w-full truncate text-sm md:hidden">
-            {{ lane.selected.value?.song.artists.join(", ") }}
+      <div
+        class="flex w-full max-w-xl flex-col items-center gap-8 text-center"
+        v-if="lane.selected.value"
+        :key="lane.selected.value.song.id"
+      >
+        <!-- song info -->
+        <div class="flex flex-col gap-2">
+          <div
+            class="text-[0.7rem] tracking-[0.25em] uppercase"
+            :class="selectedDifficultyText(lane.selected.value.difficulty)"
+          >
+            Selected Track
           </div>
 
-          <!-- desktop -->
-          <div
-            class="hidden flex-wrap items-center justify-center gap-2 md:flex"
+          <h1
+            class="text-charcoal text-2xl leading-tight font-black font-bold sm:text-3xl md:text-4xl"
           >
-            <!-- artists -->
-            <div class="flex flex-wrap justify-center gap-1.5">
+            {{ lane.selected.value?.song.title }}
+          </h1>
+
+          <div class="flex flex-col items-center gap-2 text-center">
+            <!-- mobile -->
+            <div class="text-charcoal/60 max-w-full truncate text-sm md:hidden">
+              {{ lane.selected.value?.song.artists.join(", ") }}
+            </div>
+
+            <!-- desktop -->
+            <div
+              class="hidden flex-wrap items-center justify-center gap-2 md:flex"
+            >
+              <!-- artists -->
+              <div class="flex flex-wrap justify-center gap-1.5">
+                <div
+                  v-for="artist in lane.selected.value?.song.artists"
+                  :key="artist"
+                  class="text-charcoal/70 bg-charcoal/[0.04] rounded-full px-3 py-1 text-xs"
+                >
+                  {{ artist }}
+                </div>
+              </div>
+
+              <!-- separator -->
+              <div class="bg-charcoal/20 h-1 w-1 rounded-full" />
+
+              <!-- album -->
               <div
-                v-for="artist in lane.selected.value?.song.artists"
-                :key="artist"
-                class="text-charcoal/70 bg-charcoal/[0.04] rounded-full px-3 py-1 text-xs"
+                class="border-purple/10 bg-purple/10 text-purple rounded-full border px-3 py-1 text-xs"
               >
-                {{ artist }}
+                {{ lane.selected.value?.song.album.name }}
               </div>
             </div>
 
-            <!-- separator -->
-            <div class="bg-charcoal/20 h-1 w-1 rounded-full" />
-
-            <!-- album -->
+            <!-- mobile album -->
             <div
-              class="border-purple/10 bg-purple/10 text-purple rounded-full border px-3 py-1 text-xs"
+              class="border-purple/10 bg-purple/10 text-purple rounded-full border px-3 py-1 text-[0.7rem] md:hidden"
             >
               {{ lane.selected.value?.song.album.name }}
             </div>
           </div>
+        </div>
 
-          <!-- mobile album -->
+        <!-- difficulty -->
+        <div class="grid w-full grid-cols-2 gap-3 sm:grid-cols-4">
           <div
-            class="border-purple/10 bg-purple/10 text-purple rounded-full border px-3 py-1 text-[0.7rem] md:hidden"
+            v-for="(rating, diff) in lane.selected.value?.song.maps"
+            :key="diff"
+            class="border-charcoal/5 flex flex-col items-center gap-2 rounded-2xl border bg-white/65 p-4 transition-all duration-150"
+            :class="[
+              diff === lane.selected.value?.difficulty
+                ? `${selectedDifficultyClass(diff)} relative z-10`
+                : 'hover:bg-white/60',
+            ]"
           >
-            {{ lane.selected.value?.song.album.name }}
+            <!-- diff -->
+            <div
+              class="text-[0.7rem] tracking-[0.15em] uppercase transition-colors"
+              :class="
+                diff === lane.selected.value?.difficulty
+                  ? selectedDifficultyText(diff)
+                  : 'text-charcoal/70'
+              "
+            >
+              {{ diff }}
+            </div>
+
+            <!-- rating -->
+            <div
+              class="text-3xl font-black transition-colors"
+              :class="
+                diff === lane.selected.value?.difficulty
+                  ? selectedDifficultyText(diff)
+                  : 'text-charcoal'
+              "
+            >
+              {{ rating }}
+            </div>
+
+            <!-- selected -->
+            <div
+              class="min-h-[1rem] text-[0.65rem] tracking-wide uppercase"
+              :class="
+                diff === lane.selected.value?.difficulty
+                  ? selectedDifficultyText(diff)
+                  : 'text-transparent'
+              "
+            >
+              selected
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- difficulty -->
-      <div class="grid w-full grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3">
-        <div
-          v-for="(rating, diff) in lane.selected.value?.song.maps"
-          :key="diff"
-          class="border-charcoal/5 flex flex-col items-center justify-center rounded-2xl border bg-white/65 px-3 py-3 transition-all duration-150 sm:gap-2 sm:p-4"
-          :class="[
-            diff === lane.selected.value?.difficulty
-              ? selectedDifficultyClass(diff)
-              : 'hover:bg-white/60',
-          ]"
-        >
-          <!-- diff -->
-          <div
-            class="text-[0.65rem] tracking-[0.12em] uppercase transition-colors sm:text-[0.7rem]"
-            :class="
-              diff === lane.selected.value?.difficulty
-                ? selectedDifficultyText(diff)
-                : 'text-charcoal/70'
-            "
-          >
-            {{ diff }}
-          </div>
-
-          <!-- rating -->
-          <div
-            class="text-2xl font-black transition-colors sm:text-3xl"
-            :class="
-              diff === lane.selected.value?.difficulty
-                ? selectedDifficultyText(diff)
-                : 'text-charcoal'
-            "
-          >
-            {{ rating }}
-          </div>
-
-          <!-- selected -->
-          <div
-            class="mt-0.5 min-h-[0.8rem] text-[0.6rem] tracking-wide uppercase sm:text-[0.65rem]"
-            :class="
-              diff === lane.selected.value?.difficulty
-                ? selectedDifficultyText(diff)
-                : 'text-transparent'
-            "
-          >
-            selected
-          </div>
-        </div>
-      </div>
-    </div>
+    </Transition>
   </section>
 </template>
