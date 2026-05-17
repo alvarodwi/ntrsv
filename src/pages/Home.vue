@@ -6,10 +6,16 @@ import ConfigTab from "@/components/config/ConfigTab.vue";
 const activeTab = ref<"randomizer" | "config">("randomizer");
 
 function openLaneCover() {
+  const width = 640;
+  const height = 160;
+
+  const left = window.screenX + (window.outerWidth - width) / 2;
+  const top = window.screenY + 100;
+
   window.open(
     import.meta.env.BASE_URL + "#/lane",
     "lane-cover",
-    "width=640,height=160",
+    `width=${width},height=${height},left=${left},top=${top}`,
   );
 }
 
@@ -84,7 +90,9 @@ const version = __APP_VERSION__;
           </p>
         </div>
       </header>
-      <main class="font-ui flex flex-1 items-center justify-center px-6 py-6 md:py-24">
+      <main
+        class="font-ui flex flex-1 items-center justify-center px-6 py-6 md:py-24"
+      >
         <div
           class="border-charcoal/8 w-full max-w-6xl rounded-[28px] border bg-white/55 p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_8px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl md:p-8"
         >
