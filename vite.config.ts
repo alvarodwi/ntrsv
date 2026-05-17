@@ -11,7 +11,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  base: '/ntrsv/',
   define: {
     __APP_VERSION__: JSON.stringify(packageJson.version),
   },
