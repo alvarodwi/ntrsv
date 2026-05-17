@@ -45,8 +45,9 @@ const currentSongCount = computed(() => songs.songs.length);
 
       <button
         @click="shufflePreview"
-        class="border-charcoal/10 text-charcoal hover:border-purple/20 hover:bg-purple/10 rounded-full border bg-white/50 px-4 py-2 text-xs font-medium tracking-wide uppercase transition-all duration-150"
+        class="border-charcoal/10 text-charcoal flex flex-row hover:border-purple/20 hover:bg-purple/10 rounded-full border bg-white/50 px-4 py-2 text-xs font-medium tracking-wide uppercase transition-all duration-150"
       >
+        <div class="i-ph-shuffle-angular my-auto mr-2" />
         Shuffle
       </button>
     </div>

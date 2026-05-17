@@ -26,9 +26,10 @@ function randomize() {
     <!-- action -->
     <div class="flex justify-center">
       <button
-        class="bg-gold text-charcoal rounded-full px-8 py-3 text-sm font-semibold tracking-[0.15em] uppercase shadow-[0_4px_14px_rgba(244,203,143,0.35)] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(244,203,143,0.45)] active:translate-y-0"
+        class="bg-gold text-charcoal flex flex-row rounded-full px-8 py-3 text-sm font-semibold tracking-[0.15em] uppercase shadow-[0_4px_14px_rgba(244,203,143,0.35)] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(244,203,143,0.45)] active:translate-y-0"
         @click="randomize"
       >
+        <div class="i-ph-sparkle text-lg my-auto mr-2" />
         Randomize
       </button>
     </div>
