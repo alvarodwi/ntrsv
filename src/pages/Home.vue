@@ -15,56 +15,81 @@ function openLaneCover() {
 </script>
 
 <template>
-  <div class="font-ui flex min-h-screen flex-col">
-    <!-- Always visible -->
-    <div class="mx-auto hidden w-1/2 md:block">
-      <button class="w-full underline" @click="openLaneCover">
-        Open Lane Cover
-      </button>
+  <div class="bg-cream relative min-h-screen overflow-hidden">
+    <!-- background -->
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,#fde28b_0%,transparent_70%)] opacity-40"
+    />
+
+    <div class="relative z-10">
+      <header class="font-display relative z-20">
+        <!-- desktop -->
+        <div
+          class="absolute top-4 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-4 md:flex"
+        >
+          <!-- lane cover -->
+          <button
+            class="border-purple/20 bg-purple/10 text-charcoal hover:bg-purple/20 hover:border-purple/40 rounded-full border px-5 py-2 text-sm font-semibold tracking-wide uppercase backdrop-blur-md transition-all duration-150 hover:-translate-y-0.5"
+            @click="openLaneCover"
+          >
+            Use Lane Cover
+          </button>
+
+          <!-- nav -->
+          <div
+            class="border-charcoal/5 flex items-center gap-2 rounded-full border bg-white/70 p-1 shadow-sm backdrop-blur-md"
+          >
+            <!-- randomizer -->
+            <button
+              class="rounded-full px-5 py-2 text-sm tracking-wide uppercase transition-all duration-150"
+              :class="
+                activeTab === 'randomizer'
+                  ? 'bg-gold text-charcoal shadow-sm'
+                  : 'text-charcoal/50 hover:bg-gold/20 hover:text-charcoal'
+              "
+              @click="activeTab = 'randomizer'"
+            >
+              Randomizer
+            </button>
+
+            <!-- config -->
+            <button
+              class="rounded-full px-5 py-2 text-sm tracking-wide uppercase transition-all duration-150"
+              :class="
+                activeTab === 'config'
+                  ? 'bg-purple/20 text-charcoal shadow-sm'
+                  : 'text-charcoal/50 hover:bg-purple/10 hover:text-purple'
+              "
+              @click="activeTab = 'config'"
+            >
+              Config
+            </button>
+          </div>
+        </div>
+
+        <!-- mobile -->
+        <div
+          class="border-charcoal/5 flex w-full flex-col items-center border-b bg-white/30 py-4 backdrop-blur-md md:hidden"
+        >
+          <h1 class="text-charcoal text-xl font-bold tracking-[0.2em]">
+            ntrsv
+          </h1>
+
+          <p class="text-charcoal/60 mt-1 text-center text-sm leading-relaxed">
+            [n]ikke [t]racing the stars <br />
+            [r]andom [s]elector
+            <span class="text-purple">[v]</span>
+          </p>
+        </div>
+      </header>
+      <main class="font-ui flex min-h-[100svh] items-center justify-center p-6">
+        <div
+          class="border-charcoal/8 w-full max-w-6xl rounded-[28px] border bg-white/55 p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_8px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl md:p-8"
+        >
+          <RandomizerTab v-if="activeTab === 'randomizer'" />
+          <ConfigTab v-else class="hidden md:block" />
+        </div>
+      </main>
     </div>
-    <!-- ───────────────────────────────────────────── -->
-    <!-- Top Bar -->
-    <!-- ───────────────────────────────────────────── -->
-    <header class="flex gap-0">
-      <!-- Desktop-only tab switcher -->
-      <div class="left-4 hidden flex-col md:flex w-[12vw] gap-2">
-        <button
-          class="bg-orange w-full p-2 text-left"
-          @click="activeTab = 'randomizer'"
-        >
-          Randomizer
-        </button>
-
-        <button
-          class="bg-orange w-full p-2 text-left"
-          @click="activeTab = 'config'"
-        >
-          Config
-        </button>
-      </div>
-
-      <!-- Mobile title -->
-      <div class="text-center md:hidden">
-        <h1>ntrsv</h1>
-        <p class="text-sm opacity-70">
-          [n]ikke [t]racing the stars <br />[r]andom [s]elector
-          <span class="underline">[v]</span>
-        </p>
-      </div>
-    </header>
-
-    <!-- ───────────────────────────────────────────── -->
-    <!-- Main Content -->
-    <!-- ───────────────────────────────────────────── -->
-    <main class="flex flex-1 items-center justify-center p-4">
-      <!-- Card container -->
-      <div class="w-full max-w-7xl">
-        <!-- Mobile: randomizer only -->
-        <RandomizerTab v-if="activeTab === 'randomizer'" />
-
-        <!-- Desktop-only config -->
-        <ConfigTab v-else class="hidden md:block" />
-      </div>
-    </main>
   </div>
 </template>

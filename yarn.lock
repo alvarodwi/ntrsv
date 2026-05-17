@@ -519,7 +519,7 @@
     "@unocss/core" "66.6.8"
     ofetch "^1.5.1"
 
-"@unocss/preset-wind3@66.6.8", "@unocss/preset-wind3@^66.6.8":
+"@unocss/preset-wind3@66.6.8":
   version "66.6.8"
   resolved "https://registry.yarnpkg.com/@unocss/preset-wind3/-/preset-wind3-66.6.8.tgz#637b3f200138307e10fcafa8ebc46a6a8e4b613a"
   integrity sha512-WNTeDAYCatmEFjBJ4itUmz0TElBvNFqjh5i2/ianDJO/vkd+IYUb03jEPLUppVlvMhy8bN8AunP0AtW3Xf2psA==
@@ -528,7 +528,7 @@
     "@unocss/preset-mini" "66.6.8"
     "@unocss/rule-utils" "66.6.8"
 
-"@unocss/preset-wind4@66.6.8":
+"@unocss/preset-wind4@66.6.8", "@unocss/preset-wind4@^66.6.8":
   version "66.6.8"
   resolved "https://registry.yarnpkg.com/@unocss/preset-wind4/-/preset-wind4-66.6.8.tgz#bc7b797f1f71633e407856d72d5e30a26c4d51d7"
   integrity sha512-CheOm7KXOsTI5t4RXgeYz95CO5p589F6jsyYp+inOCk4N0/d+DWiDHrQ+V0x0HWs3JXWlD+/Va/yXjlc3o2sIw==

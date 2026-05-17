@@ -1,7 +1,7 @@
 // uno.config.ts
 import {
   defineConfig,
-  presetUno,
+  presetWind3,
   presetIcons,
   presetAttributify,
   presetWebFonts,
@@ -9,7 +9,7 @@ import {
 
 export default defineConfig({
   presets: [
-    presetUno(),
+    presetWind3(),
     presetAttributify(),
     presetIcons({
       scale: 1.1,
@@ -23,4 +23,14 @@ export default defineConfig({
       },
     }),
   ],
+  theme: {
+    colors: {
+      white: '#fdfdfd',
+      cream: '#fdfcf9',
+      charcoal: '#27262a',
+      gold: '#f4cb8f',
+      purple: '#a871d6',
+      coral: '#d48275',
+    },
+  },
 })
