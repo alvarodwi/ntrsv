@@ -68,7 +68,6 @@ export const useRandomizerStore = defineStore('randomizer', {
         candidates[Math.floor(Math.random() * candidates.length)]
 
       this.selected = pick
-      console.log('sending result', pick)
       laneChannel.postMessage({
         type: 'RESULT',
         payload: {
