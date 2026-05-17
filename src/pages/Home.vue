@@ -12,6 +12,8 @@ function openLaneCover() {
     "width=640,height=160",
   );
 }
+
+const version = __APP_VERSION__;
 </script>
 
 <template>
@@ -21,7 +23,7 @@ function openLaneCover() {
       class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,#fde28b_0%,transparent_70%)] opacity-40"
     />
 
-    <div class="relative z-10">
+    <div class="relative z-10 flex min-h-screen flex-col">
       <header class="font-display relative z-20">
         <!-- desktop -->
         <div
@@ -82,7 +84,7 @@ function openLaneCover() {
           </p>
         </div>
       </header>
-      <main class="font-ui flex min-h-[100svh] items-center justify-center p-6">
+      <main class="font-ui flex flex-1 items-center justify-center px-6 py-24">
         <div
           class="border-charcoal/8 w-full max-w-6xl rounded-[28px] border bg-white/55 p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_8px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl md:p-8"
         >
@@ -90,6 +92,15 @@ function openLaneCover() {
           <ConfigTab v-else class="hidden md:block" />
         </div>
       </main>
+      <footer class="text-charcoal/35 pb-6 text-center text-xs">
+        <div class="flex flex-wrap items-center justify-center gap-2">
+          <span
+            >[n]ikke [t]racing the stars [r]andom [s]elector [v{{
+              version
+            }}]</span
+          >
+        </div>
+      </footer>
     </div>
   </div>
 </template>
