@@ -4,8 +4,10 @@ defineProps<{ title: string }>();
 </script>
 
 <template>
-  <div class="flex flex-col gap-2">
-    <h3 class="text-xs opacity-70 md:text-sm">
+  <div class="flex flex-col gap-3">
+    <h3
+      class="text-charcoal/70 text-[0.7rem] font-semibold tracking-[0.18em] uppercase"
+    >
       {{ title }}
     </h3>
 

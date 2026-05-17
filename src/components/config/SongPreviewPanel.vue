@@ -18,7 +18,7 @@ function getRandomSample<T>(arr: T[], size: number): T[] {
 }
 
 const previewSongs = ref<Song[]>([]);
-const previewSize = 5;
+const previewSize = 3;
 
 function shufflePreview() {
   previewSongs.value = getRandomSample(songs.songs, previewSize);
@@ -32,46 +32,77 @@ const currentSongCount = computed(() => songs.songs.length);
 </script>
 
 <template>
-  <section class="flex h-full flex-col gap-4 overflow-auto rounded border p-4">
-    <!-- header -->
-    <div>
-      <h2 class="text-lg font-medium">Song Library Preview</h2>
-      <p class="text-xs opacity-60">Random sample from current dataset</p>
+  <section class="flex h-full flex-col gap-4">
+    <!-- top bar -->
+    <div class="flex items-center justify-between gap-3">
+      <div>
+        <div class="text-charcoal text-sm font-semibold">Library Preview</div>
+
+        <p class="text-charcoal/50 mt-0.5 text-xs">
+          Random sample from current dataset
+        </p>
+      </div>
+
+      <button
+        @click="shufflePreview"
+        class="border-charcoal/10 text-charcoal hover:border-purple/20 hover:bg-purple/10 rounded-full border bg-white/50 px-4 py-2 text-xs font-medium tracking-wide uppercase transition-all duration-150"
+      >
+        Shuffle
+      </button>
     </div>
 
-    <!-- list -->
-    <ul class="flex flex-col gap-2 text-sm">
-      <li v-for="song in previewSongs" :key="song.id" class="flex flex-col">
-        <div class="flex items-baseline justify-between gap-2">
-          <strong class="truncate">
-            {{ song.title }}
-          </strong>
+    <!-- preview list -->
+    <div
+      class="border-charcoal/5 flex flex-1 flex-col gap-2 overflow-auto rounded-[24px] border bg-white/35 p-3"
+    >
+      <div
+        v-for="song in previewSongs"
+        :key="song.id"
+        class="group hover:border-purple/10 rounded-[18px] border border-transparent bg-white/45 p-4 transition-all duration-150 hover:bg-white/70"
+      >
+        <!-- top row -->
+        <div class="flex items-start justify-between gap-3">
+          <!-- title -->
+          <div class="min-w-0 flex-1">
+            <div class="text-charcoal truncate text-sm font-semibold">
+              {{ song.title }}
+            </div>
 
-          <span class="shrink-0 text-xs opacity-50">
+            <div class="text-charcoal/55 mt-1 truncate text-xs">
+              {{ song.artists.join(", ") }}
+            </div>
+          </div>
+
+          <!-- album -->
+          <div
+            class="bg-purple/10 text-purple shrink-0 rounded-full px-2.5 py-1 text-[0.65rem] font-semibold tracking-wide uppercase"
+          >
             {{ song.album.code }}
-          </span>
+          </div>
         </div>
 
-        <span class="truncate text-xs opacity-60">
-          {{ song.artists.join(", ") }}
-        </span>
-      </li>
-    </ul>
-
-    <!-- footer -->
-    <div class="mt-auto flex flex-col gap-2 text-xs opacity-60">
-      <div class="flex justify-between">
-        <span>Sample size: {{ previewSize }}</span>
-        <span>Total: {{ currentSongCount }}</span>
+        <!-- difficulties -->
+        <div class="mt-3 flex flex-wrap gap-1.5">
+          <div
+            v-for="(rating, diff) in song.maps"
+            :key="diff"
+            class="bg-charcoal/[0.04] text-charcoal/70 rounded-full px-2 py-1 text-[0.65rem] font-medium"
+          >
+            {{ diff }} {{ rating }}
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- action -->
-    <button
-      @click="shufflePreview"
-      class="rounded border px-2 py-1 text-xs opacity-80"
+    <!-- footer -->
+    <div
+      class="bg-charcoal/[0.03] text-charcoal/60 flex items-center justify-between rounded-full px-4 py-2 text-xs"
     >
-      Shuffle sample
-    </button>
+      <span>Sample size: {{ previewSize }}</span>
+
+      <span class="text-purple font-semibold">
+        {{ currentSongCount }} total
+      </span>
+    </div>
   </section>
 </template>

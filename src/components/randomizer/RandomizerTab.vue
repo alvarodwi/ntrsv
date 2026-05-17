@@ -22,11 +22,32 @@ function randomize() {
 </script>
 
 <template>
-  <div class="mb-8 w-full justify-center">
-    <button class="bg-orange w-full text-center px-2 py-3 rounded-sm text-black/90 underline" @click="randomize">Randomize</button>
-  </div>
-  <div class="grid h-full grid-cols-1 gap-4 md:grid-cols-2">
-    <ResultPanel />
-    <FilterPanel />
+  <div class="flex flex-col gap-6">
+    <!-- action -->
+    <div class="flex justify-center">
+      <button
+        class="bg-gold text-charcoal rounded-full px-8 py-3 text-sm font-semibold tracking-[0.15em] uppercase shadow-[0_4px_14px_rgba(244,203,143,0.35)] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(244,203,143,0.45)] active:translate-y-0"
+        @click="randomize"
+      >
+        Randomize
+      </button>
+    </div>
+
+    <!-- content -->
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-[1.1fr_0.9fr]">
+      <!-- result -->
+      <div
+        class="border-charcoal/5 rounded-[24px] border bg-white/35 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-md"
+      >
+        <ResultPanel />
+      </div>
+
+      <!-- filters -->
+      <div
+        class="border-charcoal/5 rounded-[24px] border bg-white/35 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-md"
+      >
+        <FilterPanel />
+      </div>
+    </div>
   </div>
 </template>

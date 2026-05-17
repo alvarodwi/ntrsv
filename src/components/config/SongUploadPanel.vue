@@ -53,46 +53,87 @@ async function resetToBundled() {
 </script>
 
 <template>
-  <section class="flex h-full flex-col gap-4 rounded border p-4">
-    <!-- header -->
-    <div>
-      <h2 class="text-lg font-medium">Song Library</h2>
-      <p class="text-xs opacity-60">Load custom JSON or use bundled dataset</p>
-    </div>
+  <section class="flex h-full flex-col gap-4">
+    <!-- compact label -->
+    <div class="flex items-center justify-between">
+      <div>
+        <div class="text-charcoal text-sm font-semibold">Song Import</div>
 
-    <!-- upload area -->
-    <div class="flex flex-col gap-2">
-      <input
-        type="file"
-        accept=".json,application/json"
-        @change="onSongFileChange"
-        class="block w-full rounded border p-2"
-      />
+        <p class="text-charcoal/50 mt-0.5 text-xs">Load custom datasets</p>
+      </div>
 
-      <button
-        type="button"
-        class="rounded border px-3 py-2"
-        @click="resetToBundled"
-        :disabled="!customLoaded"
+      <div
+        class="bg-purple/10 text-purple rounded-full px-3 py-1 text-xs font-semibold"
       >
-        Reset to bundled
-      </button>
+        {{ currentSongCount }} songs
+      </div>
     </div>
 
-    <!-- status panel (important for “tool feel”) -->
-    <div class="mt-auto flex flex-col gap-1 text-xs opacity-70">
-      <p v-if="uploadError" class="text-red-500">
+    <!-- upload workspace -->
+    <div
+      class="border-charcoal/5 flex flex-1 flex-col gap-4 rounded-[24px] border bg-white/35 p-4"
+    >
+      <!-- upload zone -->
+      <label
+        class="border-charcoal/10 hover:border-purple/30 hover:bg-purple/5 flex flex-1 cursor-pointer flex-col items-center justify-center gap-3 rounded-[20px] border border-dashed bg-white/50 p-6 text-center transition-all duration-150"
+      >
+        <div
+          class="bg-purple/10 text-purple flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold"
+        >
+          +
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="text-charcoal text-sm font-semibold">
+            Upload JSON File
+          </div>
+
+          <p class="text-charcoal/50 text-xs">
+            Select a valid songs.json dataset
+          </p>
+        </div>
+
+        <input
+          type="file"
+          accept=".json,application/json"
+          @change="onSongFileChange"
+          class="hidden"
+        />
+      </label>
+
+      <!-- footer row -->
+      <div class="flex items-center justify-between gap-3">
+        <!-- source -->
+        <div class="flex flex-col gap-0.5">
+          <span class="text-charcoal/50 text-xs"> Source </span>
+
+          <span class="text-charcoal text-sm font-medium">
+            {{
+              customLoaded
+                ? `custom (${overrideName || "override"})`
+                : "bundled songs.json"
+            }}
+          </span>
+        </div>
+
+        <!-- reset -->
+        <button
+          type="button"
+          class="border-charcoal/10 text-charcoal hover:border-purple/20 hover:bg-purple/10 rounded-full border bg-white/50 px-4 py-2 text-xs font-medium tracking-wide uppercase transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-40"
+          @click="resetToBundled"
+          :disabled="!customLoaded"
+        >
+          Reset
+        </button>
+      </div>
+
+      <!-- error -->
+      <div
+        v-if="uploadError"
+        class="border-coral/10 bg-coral/10 text-coral rounded-2xl border px-4 py-3 text-sm"
+      >
         {{ uploadError }}
-      </p>
-      <p>
-        Source:
-        <span v-if="customLoaded">
-          custom ({{ overrideName || "override" }})
-        </span>
-        <span v-else> bundled songs.json </span>
-        <br />
-        Loaded songs: {{ currentSongCount }}
-      </p>
+      </div>
     </div>
   </section>
 </template>
