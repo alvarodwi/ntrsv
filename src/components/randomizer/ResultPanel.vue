@@ -3,42 +3,18 @@ import { useLaneSync } from "@/composables/useLaneSync";
 
 const lane = useLaneSync();
 
-const selectedDifficultyClass = (diff: string) => {
+const selectedDifficultyGlow = (diff: string) => {
   switch (diff.toLowerCase()) {
     case "casual":
-      return `
-        scale-[1.06] -translate-y-1
-        border-[#9eac53]/60
-        bg-[#9eac53]/12
-        shadow-[0_0_0_1px_rgba(158,172,83,0.15),0_8px_24px_rgba(158,172,83,0.18)]
-      `;
-
+      return "bg-[#9eac53]/10";
     case "normal":
-      return `
-        scale-[1.06] -translate-y-1
-        border-[#c78a03]/60
-        bg-[#c78a03]/12
-        shadow-[0_0_0_1px_rgba(199,138,3,0.15),0_8px_24px_rgba(199,138,3,0.18)]
-      `;
-
+      return "bg-[#c78a03]/10";
     case "hard":
-      return `
-        scale-[1.06] -translate-y-1
-        border-[#f03055]/60
-        bg-[#f03055]/12
-        shadow-[0_0_0_1px_rgba(240,48,85,0.15),0_8px_24px_rgba(240,48,85,0.18)]
-      `;
-
+      return "bg-[#f03055]/10";
     case "expert":
-      return `
-        scale-[1.06] -translate-y-1
-        border-[#cc7dfa]/60
-        bg-[#cc7dfa]/12
-        shadow-[0_0_0_1px_rgba(204,125,250,0.15),0_8px_24px_rgba(204,125,250,0.18)]
-      `;
-
+      return "bg-[#cc7dfa]/10";
     default:
-      return "border-gold bg-gold/10";
+      return "bg-gold/10";
   }
 };
 
@@ -155,47 +131,60 @@ const selectedDifficultyText = (diff: string) => {
           <div
             v-for="(rating, diff) in lane.selected.value?.song.maps"
             :key="diff"
-            class="border-charcoal/5 flex flex-col items-center gap-2 rounded-2xl border bg-white/65 p-4 transition-all duration-150"
-            :class="[
-              diff === lane.selected.value?.difficulty
-                ? `${selectedDifficultyClass(diff)} relative z-10`
-                : 'hover:bg-white/60',
-            ]"
+            class="border-charcoal/5 relative flex flex-col items-center gap-2 rounded-2xl border bg-white/65 p-4"
+            :class="diff === lane.selected.value?.difficulty ? 'z-10' : ''"
           >
-            <!-- diff -->
+            <!-- GPU-friendly glow layer (instead of shadow animation) -->
             <div
-              class="text-[0.7rem] tracking-[0.15em] uppercase transition-colors"
-              :class="
-                diff === lane.selected.value?.difficulty
-                  ? selectedDifficultyText(diff)
-                  : 'text-charcoal/70'
-              "
-            >
-              {{ diff }}
-            </div>
+              v-if="diff === lane.selected.value?.difficulty"
+              class="absolute inset-0 rounded-2xl opacity-100"
+              :class="selectedDifficultyGlow(diff)"
+            />
 
-            <!-- rating -->
+            <!-- content wrapper -->
             <div
-              class="text-3xl font-black transition-colors"
+              class="relative flex flex-col items-center gap-2 transition-transform duration-150 ease-out"
               :class="
                 diff === lane.selected.value?.difficulty
-                  ? selectedDifficultyText(diff)
-                  : 'text-charcoal'
+                  ? 'translate-y-[-2px] will-change-transform'
+                  : ''
               "
             >
-              {{ rating }}
-            </div>
+              <!-- diff label -->
+              <div
+                class="text-[0.7rem] tracking-[0.15em] uppercase"
+                :class="
+                  diff === lane.selected.value?.difficulty
+                    ? selectedDifficultyText(diff)
+                    : 'text-charcoal/70'
+                "
+              >
+                {{ diff }}
+              </div>
 
-            <!-- selected -->
-            <div
-              class="min-h-[1rem] text-[0.65rem] tracking-wide uppercase"
-              :class="
-                diff === lane.selected.value?.difficulty
-                  ? selectedDifficultyText(diff)
-                  : 'text-transparent'
-              "
-            >
-              selected
+              <!-- rating -->
+              <div
+                class="text-3xl font-black"
+                :class="
+                  diff === lane.selected.value?.difficulty
+                    ? selectedDifficultyText(diff)
+                    : 'text-charcoal'
+                "
+              >
+                {{ rating }}
+              </div>
+
+              <!-- selected label -->
+              <div
+                class="min-h-[1rem] text-[0.65rem] tracking-wide uppercase"
+                :class="
+                  diff === lane.selected.value?.difficulty
+                    ? selectedDifficultyText(diff)
+                    : 'text-transparent'
+                "
+              >
+                selected
+              </div>
             </div>
           </div>
         </div>
