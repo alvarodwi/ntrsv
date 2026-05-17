@@ -10,7 +10,7 @@ function openLaneCover() {
   const height = 160;
 
   const left = window.screenX + (window.outerWidth - width) / 2;
-  const top = window.screenY + 100;
+  const top = window.screenY + 84;
 
   window.open(
     import.meta.env.BASE_URL + "#/lane",
