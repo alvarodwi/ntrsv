@@ -29,7 +29,7 @@ export default defineConfig({
       cream: '#fdfcf9',
       charcoal: '#27262a',
       gold: '#f4cb8f',
-      purple: '#a871d6',
+      purple: '#b07bac',
       coral: '#d48275',
     },
   },
