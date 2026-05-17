@@ -61,7 +61,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
   >
     <!-- Difficulty -->
     <FilterSection title="Difficulty">
-      <div class="flex flex-wrap gap-2">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
         <button
           v-for="d in DifficultyList"
           :key="d"
@@ -143,7 +143,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="tag in allTags"
           :key="tag"
           @click="filter.toggleTag(tag)"
-          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 px-2.5 py-1 text-xs text-[0.7rem] transition-all duration-150"
+          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs text-[0.7rem] transition-all duration-150"
           :class="
             filter.tags.has(tag)
               ? 'border-gold bg-gold/20 text-charcoal'
@@ -162,7 +162,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="album in allAlbums"
           :key="album.code"
           @click="filter.toggleAlbum(album.code)"
-          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 text-xs transition-all duration-150 sm:px-3 sm:py-1.5 sm:text-xs"
+          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 px-2.5 py-1 text-xs transition-all duration-150 sm:px-3 sm:py-1.5 sm:text-xs"
           :class="
             filter.albums.has(album.code)
               ? 'border-purple/30 bg-purple/15 text-purple'
