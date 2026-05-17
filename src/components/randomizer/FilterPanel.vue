@@ -57,7 +57,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
 
 <template>
   <section
-    class="border-charcoal/5 flex h-full flex-col gap-6 rounded-[24px] border bg-white/55 p-6 backdrop-blur-md"
+    class="border-charcoal/5 flex h-full flex-col gap-4 rounded-[24px] border bg-white/55 p-4 backdrop-blur-md sm:p-5 md:gap-6 md:p-6"
   >
     <!-- Difficulty -->
     <FilterSection title="Difficulty">
@@ -66,7 +66,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="d in DifficultyList"
           :key="d"
           @click="filter.toggleDifficulty(d)"
-          class="rounded-full border px-4 py-2 text-xs font-semibold tracking-wide uppercase transition-all duration-150"
+          class="rounded-full border px-3 py-1.5 text-[0.7rem] font-semibold tracking-wide uppercase transition-all duration-150 sm:px-4 sm:py-2 sm:text-xs"
           :class="difficultyFilterClass(d)"
         >
           {{ d }}
@@ -76,7 +76,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
 
     <!-- Rating -->
     <FilterSection title="Rating">
-      <div class="flex flex-col gap-5">
+      <div class="flex flex-col gap-4">
         <!-- MIN -->
         <div class="flex items-center gap-3">
           <span class="text-charcoal/60 w-10 text-xs font-medium uppercase">
@@ -134,6 +134,8 @@ const difficultyFilterClass = (diff: Difficulty) => {
       </div>
     </FilterSection>
 
+    <div class="border-charcoal/5 border-t pt-4"/>
+
     <!-- Tags -->
     <FilterSection title="Tags">
       <div class="flex flex-wrap gap-2">
@@ -141,7 +143,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="tag in allTags"
           :key="tag"
           @click="filter.toggleTag(tag)"
-          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 px-3 py-1.5 text-xs transition-all duration-150"
+          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 px-2.5 py-1 text-xs text-[0.7rem] transition-all duration-150"
           :class="
             filter.tags.has(tag)
               ? 'border-gold bg-gold/20 text-charcoal'
@@ -160,7 +162,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="album in allAlbums"
           :key="album.code"
           @click="filter.toggleAlbum(album.code)"
-          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 px-3 py-1.5 text-xs transition-all duration-150"
+          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 text-xs transition-all duration-150 sm:px-3 sm:py-1.5 sm:text-xs"
           :class="
             filter.albums.has(album.code)
               ? 'border-purple/30 bg-purple/15 text-purple'

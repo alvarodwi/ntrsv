@@ -72,21 +72,47 @@ const selectedDifficultyText = (diff: string) => {
           Selected Track
         </div>
 
-        <h1 class="text-charcoal text-4xl leading-tight font-black font-bold">
+        <h1
+          class="text-charcoal text-2xl leading-tight font-black font-bold sm:text-3xl md:text-4xl"
+        >
           {{ lane.selected.value?.song.title }}
         </h1>
 
-        <div class="flex flex-wrap items-center justify-center gap-2">
-          <!-- artists -->
-          <div
-            class="text-charcoal/60 bg-charcoal/[0.03] rounded-full px-3 py-1 text-xs backdrop-blur-sm"
-          >
+        <div class="flex flex-col items-center gap-2 text-center">
+          <!-- mobile -->
+          <div class="text-charcoal/60 max-w-full truncate text-sm md:hidden">
             {{ lane.selected.value?.song.artists.join(", ") }}
           </div>
 
-          <!-- album -->
+          <!-- desktop -->
           <div
-            class="bg-purple/15 text-purple border-purple/10 text-purple rounded-full border px-3 py-1 text-xs"
+            class="hidden flex-wrap items-center justify-center gap-2 md:flex"
+          >
+            <!-- artists -->
+            <div class="flex flex-wrap justify-center gap-1.5">
+              <div
+                v-for="artist in lane.selected.value?.song.artists"
+                :key="artist"
+                class="text-charcoal/70 bg-charcoal/[0.04] rounded-full px-3 py-1 text-xs"
+              >
+                {{ artist }}
+              </div>
+            </div>
+
+            <!-- separator -->
+            <div class="bg-charcoal/20 h-1 w-1 rounded-full" />
+
+            <!-- album -->
+            <div
+              class="border-purple/10 bg-purple/10 text-purple rounded-full border px-3 py-1 text-xs"
+            >
+              {{ lane.selected.value?.song.album.name }}
+            </div>
+          </div>
+
+          <!-- mobile album -->
+          <div
+            class="border-purple/10 bg-purple/10 text-purple rounded-full border px-3 py-1 text-[0.7rem] md:hidden"
           >
             {{ lane.selected.value?.song.album.name }}
           </div>
@@ -94,11 +120,11 @@ const selectedDifficultyText = (diff: string) => {
       </div>
 
       <!-- difficulty -->
-      <div class="grid w-full grid-cols-2 gap-3 sm:grid-cols-4">
+      <div class="grid w-full grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3">
         <div
           v-for="(rating, diff) in lane.selected.value?.song.maps"
           :key="diff"
-          class="border-charcoal/5 flex flex-col items-center gap-2 rounded-2xl border bg-white/65 p-4 transition-all duration-150"
+          class="border-charcoal/5 flex flex-col items-center justify-center rounded-2xl border bg-white/65 px-3 py-3 transition-all duration-150 sm:gap-2 sm:p-4"
           :class="[
             diff === lane.selected.value?.difficulty
               ? selectedDifficultyClass(diff)
@@ -107,7 +133,7 @@ const selectedDifficultyText = (diff: string) => {
         >
           <!-- diff -->
           <div
-            class="text-[0.7rem] tracking-[0.15em] uppercase transition-colors"
+            class="text-[0.65rem] tracking-[0.12em] uppercase transition-colors sm:text-[0.7rem]"
             :class="
               diff === lane.selected.value?.difficulty
                 ? selectedDifficultyText(diff)
@@ -119,7 +145,7 @@ const selectedDifficultyText = (diff: string) => {
 
           <!-- rating -->
           <div
-            class="text-3xl font-black transition-colors"
+            class="text-2xl font-black transition-colors sm:text-3xl"
             :class="
               diff === lane.selected.value?.difficulty
                 ? selectedDifficultyText(diff)
@@ -131,7 +157,7 @@ const selectedDifficultyText = (diff: string) => {
 
           <!-- selected -->
           <div
-            class="min-h-[1rem] text-[0.65rem] tracking-wide uppercase"
+            class="mt-0.5 min-h-[0.8rem] text-[0.6rem] tracking-wide uppercase sm:text-[0.65rem]"
             :class="
               diff === lane.selected.value?.difficulty
                 ? selectedDifficultyText(diff)
