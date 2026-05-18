@@ -6,7 +6,7 @@ export const useFilterStore = defineStore('filters', {
     difficulties: new Set<Difficulty>(),
     tags: new Set<string>(),
     albums: new Set<string>(),
-    access: new Set<string>("free"),
+    access: new Set<string>(["free"]),
 
     minRating: 1,
     maxRating: 19,
