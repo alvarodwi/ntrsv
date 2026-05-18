@@ -167,25 +167,6 @@ const difficultyFilterClass = (diff: Difficulty) => {
 
     <div class="border-charcoal/5 border-t" />
 
-    <!-- Tags -->
-    <FilterSection title="Tags">
-      <div class="flex flex-wrap gap-2">
-        <button
-          v-for="tag in allTags"
-          :key="tag"
-          @click="filter.toggleTag(tag)"
-          class="border-charcoal/10 text-charcoal/70 rounded-full border px-2.5 py-1 text-xs text-[0.7rem] transition-[background-color,border-color,color,transform] duration-300 ease-out sm:px-3 sm:py-1.5"
-          :class="
-            filter.tags.has(tag)
-              ? 'border-gold/40 bg-gold/25 text-charcoal translate-y-[-1px] font-medium'
-              : 'hover:bg-gold/10 text-charcoal/50'
-          "
-        >
-          {{ tag }}
-        </button>
-      </div>
-    </FilterSection>
-
     <!-- Albums -->
     <FilterSection title="Albums">
       <div class="flex flex-wrap gap-2">
@@ -201,6 +182,25 @@ const difficultyFilterClass = (diff: Difficulty) => {
           "
         >
           {{ album.code }}
+        </button>
+      </div>
+    </FilterSection>
+    
+    <!-- Tags -->
+    <FilterSection title="Tags">
+      <div class="flex flex-wrap gap-2">
+        <button
+          v-for="tag in allTags"
+          :key="tag"
+          @click="filter.toggleTag(tag)"
+          class="border-charcoal/10 text-charcoal/70 rounded-full border px-2.5 py-1 text-xs text-[0.7rem] transition-[background-color,border-color,color,transform] duration-300 ease-out sm:px-3 sm:py-1.5"
+          :class="
+            filter.tags.has(tag)
+              ? 'border-gold/40 bg-gold/25 text-charcoal translate-y-[-1px] font-medium'
+              : 'hover:bg-gold/10 text-charcoal/50'
+          "
+        >
+          {{ tag }}
         </button>
       </div>
     </FilterSection>
