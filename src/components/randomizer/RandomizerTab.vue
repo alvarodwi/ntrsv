@@ -8,14 +8,15 @@ import { onMounted } from "vue";
 const randomizer = useRandomizerStore();
 const lane = useLaneSync();
 
-onMounted(() => lane.init());
+onMounted(() => {
+  lane.init();
+});
 
 function randomize() {
   randomizer.randomize();
 
   const pick = randomizer.selected;
   if (!pick) return;
-
   lane.emitSelection(pick.song.id, pick.difficulty);
   lane.emitFilterSync();
 }

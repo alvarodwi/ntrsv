@@ -5,7 +5,7 @@ import type { SongPick } from '@/types/songPick'
 import type { Difficulty } from '@/types/difficulty'
 import type { FilterSnapshot } from '@/types/filterSnapshot'
 import { useFilterStore } from '@/stores/filterStore'
-
+import { useMediaQuery } from "@vueuse/core";
 
 const selected = ref<SongPick | null>(null)
 
@@ -19,9 +19,8 @@ function serializeFilter(filter: ReturnType<typeof useFilterStore>): FilterSnaps
     }
 }
 
-
-
 export function useLaneSync() {
+    const isMobile = useMediaQuery('(max-width: 768px)')
     const songStore = useSongStore()
     const filterStore = useFilterStore()
 
@@ -64,10 +63,12 @@ export function useLaneSync() {
             })
         }
 
-        laneChannel.postMessage({
-            type: 'SYNC_FILTER',
-            payload: serializeFilter(filterStore),
-        })
+        if (!isMobile.value) {
+            laneChannel.postMessage({
+                type: 'SYNC_FILTER',
+                payload: serializeFilter(filterStore),
+            })
+        }
     }
 
     function emitSelection(songId: string, difficulty: Difficulty) {
@@ -85,16 +86,18 @@ export function useLaneSync() {
     }
 
     function emitFilterSync() {
-        const filter = useFilterStore()
+        if (!isMobile.value) return;
 
         laneChannel.postMessage({
             type: 'SYNC_FILTER',
-            payload: serializeFilter(filter),
+            payload: serializeFilter(filterStore),
         })
     }
 
 
     function applyFilter(payload: FilterSnapshot) {
+        if (!isMobile.value) return;
+
         filterStore.difficulties = new Set(payload.difficulties)
         filterStore.tags = new Set(payload.tags)
         filterStore.albums = new Set(payload.albums)
