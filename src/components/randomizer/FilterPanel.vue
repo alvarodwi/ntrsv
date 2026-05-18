@@ -33,7 +33,6 @@ const hasActiveFilters = computed(() => {
   return (
     filter.tags.size > 0 ||
     filter.albums.size > 0 ||
-    !(filter.access.size === 1 && filter.access.has("free")) ||
     filter.minRating !== 1 ||
     filter.maxRating !== 19 ||
     filter.difficulties.size > 0
@@ -173,13 +172,14 @@ const difficultyFilterClass = (diff: Difficulty) => {
     <div class="border-charcoal/5 border-t" />
 
     <!-- Access -->
-    <FilterSection title="Access">
+    <FilterSection title="Access" v-if="false">
       <div class="flex flex-wrap gap-2">
         <button
           v-for="access in allAccess"
           :key="access"
           @click="filter.toggleAccess(access)"
           class="border-charcoal/10 text-charcoal/70 rounded-full border px-2.5 py-1 text-xs transition-[background-color,border-color,color,transform] duration-300 ease-out sm:px-3 sm:py-1.5 sm:text-xs"
+          :disabled="access === 'free'"
           :class="
             filter.access.has(access)
               ? 'border-coral/40 bg-coral/25 text-coral translate-y-[-1px] font-medium'
