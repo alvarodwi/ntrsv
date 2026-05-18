@@ -174,11 +174,11 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="tag in allTags"
           :key="tag"
           @click="filter.toggleTag(tag)"
-          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 px-2.5 py-1 text-xs text-[0.7rem] transition-all duration-150 sm:px-3 sm:py-1.5"
+          class="border-charcoal/10 text-charcoal/70 rounded-full border px-2.5 py-1 text-xs text-[0.7rem] transition-[background-color,border-color,color,transform] duration-300 ease-out sm:px-3 sm:py-1.5"
           :class="
             filter.tags.has(tag)
-              ? 'border-gold bg-gold/20 text-charcoal'
-              : 'hover:bg-gold/10'
+              ? 'border-gold/40 bg-gold/25 text-charcoal translate-y-[-1px] font-medium'
+              : 'hover:bg-gold/10 text-charcoal/50'
           "
         >
           {{ tag }}
@@ -193,11 +193,11 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="album in allAlbums"
           :key="album.code"
           @click="filter.toggleAlbum(album.code)"
-          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 px-2.5 py-1 text-xs transition-all duration-150 sm:px-3 sm:py-1.5 sm:text-xs"
+          class="border-charcoal/10 text-charcoal/70 rounded-full border px-2.5 py-1 text-xs transition-[background-color,border-color,color,transform] duration-300 ease-out sm:px-3 sm:py-1.5 sm:text-xs"
           :class="
             filter.albums.has(album.code)
-              ? 'border-purple/30 bg-purple/15 text-purple'
-              : 'hover:bg-purple/10'
+              ? 'border-purple/40 bg-purple/25 text-purple translate-y-[-1px] font-medium'
+              : 'hover:bg-purple/10 text-charcoal/50'
           "
         >
           {{ album.code }}
