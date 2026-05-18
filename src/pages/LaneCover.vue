@@ -5,6 +5,7 @@ import { useSongStore } from "@/stores/songStore";
 import { useRandomizerStore } from "@/stores/randomizerStore";
 import { loadSongs } from "@/services/songService";
 import { useLaneSync } from "@/composables/useLaneSync";
+import { AnimatePresence, motion } from "motion-v";
 
 const songs = useSongStore();
 const randomizer = useRandomizerStore();
@@ -108,11 +109,21 @@ const difficultyGlowClass = (diff: string) => {
     class="relative flex h-screen flex-col overflow-hidden bg-[#0d0d0f] text-white"
   >
     <!-- glow -->
-    <div
-      v-if="lane.selected.value"
-      class="pointer-events-none absolute inset-0 opacity-15 blur-3xl"
-      :class="difficultyGlowClass(lane.selected.value.difficulty)"
-    />
+    <AnimatePresence mode="wait">
+      <motion.div
+        v-if="lane.selected.value"
+        :key="lane.selected.value.difficulty"
+        :initial="{ opacity: 0 }"
+        :animate="{ opacity: 0.15 }"
+        :exit="{ opacity: 0 }"
+        :transition="{
+          duration: 0.35,
+          ease: 'easeOut',
+        }"
+        class="pointer-events-none absolute inset-0 blur-3xl"
+        :class="difficultyGlowClass(lane.selected.value.difficulty)"
+      />
+    </AnimatePresence>
 
     <!-- content -->
     <div class="relative z-10 flex flex-1 flex-col justify-end p-3">
@@ -125,8 +136,16 @@ const difficultyGlowClass = (diff: string) => {
       </div>
 
       <!-- active -->
-      <div
+      <motion.div
         v-else
+        :key="lane.selected.value.song.id"
+        :initial="{ opacity: 0.85, y: 4 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{
+          type: 'spring',
+          stiffness: 260,
+          damping: 22,
+        }"
         class="rounded-[24px] border border-white/5 bg-white/[0.03] p-3 backdrop-blur-xl"
       >
         <!-- top row -->
@@ -178,7 +197,7 @@ const difficultyGlowClass = (diff: string) => {
 
           <!-- button -->
           <button
-            class="flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.7rem] font-semibold tracking-wide uppercase transition-all duration-150"
+            class="flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.7rem] font-semibold tracking-wide uppercase transition-all duration-150 hover:-translate-y-0.5 hover:scale-[1.02]  active:translate-y-0 active:scale-[0.98]"
             :class="selectedDifficultyButton(lane.selected.value.difficulty)"
             @click="randomize"
           >
@@ -187,7 +206,7 @@ const difficultyGlowClass = (diff: string) => {
             <span>Randomize</span>
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   </div>
 </template>

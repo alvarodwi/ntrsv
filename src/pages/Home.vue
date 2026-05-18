@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import RandomizerTab from "@/components/randomizer/RandomizerTab.vue";
 import ConfigTab from "@/components/config/ConfigTab.vue";
+import { motion } from "motion-v";
 
 const activeTab = ref<"randomizer" | "config">("randomizer");
 
@@ -25,8 +26,20 @@ const version = __APP_VERSION__;
 <template>
   <div class="bg-cream relative min-h-screen overflow-hidden">
     <!-- background -->
-    <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,#fde28b_0%,transparent_70%)] opacity-40"
+    <!-- large warm glow -->
+    <motion.div
+      :animate="{
+        x: [0, 50, -20, 0],
+        y: [0, -20, 10, 0],
+        scale: [1, 1.08, 1],
+        opacity: [0.28, 0.38, 0.28],
+      }"
+      :transition="{
+        duration: 22,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      }"
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_65%,#f4cb8f_0%,transparent_72%)]"
     />
 
     <div class="relative z-10 flex min-h-screen flex-col">

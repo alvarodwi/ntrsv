@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useLaneSync } from "@/composables/useLaneSync";
+import { motion } from "motion-v";
 
 const lane = useLaneSync();
 
@@ -62,17 +63,24 @@ const selectedDifficultyText = (diff: string) => {
       <!-- song info -->
       <div class="flex flex-col gap-2">
         <div
-          class="text-[0.7rem] tracking-[0.25em] uppercase"
+          class="text-[0.7rem] tracking-[0.25em] uppercase transition-colors duration-700 ease-out"
           :class="selectedDifficultyText(lane.selected.value.difficulty)"
         >
           Selected Track
         </div>
 
-        <h1
+        <motion.h1
+          :key="lane.selected.value.song.id"
+          :initial="{ opacity: 0, y: 2 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{
+            duration: 0.4,
+            ease: 'easeOut',
+          }"
           class="text-charcoal text-2xl leading-tight font-black font-bold sm:text-3xl md:text-4xl"
         >
           {{ lane.selected.value?.song.title }}
-        </h1>
+        </motion.h1>
 
         <div class="flex flex-col items-center gap-2 text-center">
           <!-- mobile -->
@@ -89,7 +97,7 @@ const selectedDifficultyText = (diff: string) => {
               <div
                 v-for="artist in lane.selected.value?.song.artists"
                 :key="artist"
-                class="text-charcoal/70 bg-charcoal/[0.04] rounded-full px-3 py-1 text-xs"
+                class="text-charcoal/70 bg-charcoal/[0.04] rounded-full px-3 py-1 text-xs transition-colors duration-700 ease-out"
               >
                 {{ artist }}
               </div>
@@ -100,7 +108,7 @@ const selectedDifficultyText = (diff: string) => {
 
             <!-- album -->
             <div
-              class="border-purple/10 bg-purple/10 text-purple rounded-full border px-3 py-1 text-xs"
+              class="border-purple/10 bg-purple/10 text-purple rounded-full border px-3 py-1 text-xs transition-colors duration-700 ease-out"
             >
               {{ lane.selected.value?.song.album.name }}
             </div>
@@ -108,7 +116,7 @@ const selectedDifficultyText = (diff: string) => {
 
           <!-- mobile album -->
           <div
-            class="border-purple/10 bg-purple/10 text-purple rounded-full border px-3 py-1 text-[0.7rem] md:hidden"
+            class="border-purple/10 bg-purple/10 text-purple rounded-full border px-3 py-1 text-[0.7rem] transition-colors duration-700 ease-out md:hidden"
           >
             {{ lane.selected.value?.song.album.name }}
           </div>
@@ -126,7 +134,7 @@ const selectedDifficultyText = (diff: string) => {
           <!-- GPU-friendly glow layer (instead of shadow animation) -->
           <div
             v-if="diff === lane.selected.value?.difficulty"
-            class="absolute inset-0 rounded-2xl opacity-100"
+            class="absolute inset-0 rounded-2xl opacity-100 transition-colors duration-700 ease-out"
             :class="selectedDifficultyGlow(diff)"
           />
 
@@ -141,7 +149,7 @@ const selectedDifficultyText = (diff: string) => {
           >
             <!-- diff label -->
             <div
-              class="text-[0.7rem] tracking-[0.15em] uppercase"
+              class="text-[0.7rem] tracking-[0.15em] uppercase transition-colors duration-700 ease-out"
               :class="
                 diff === lane.selected.value?.difficulty
                   ? selectedDifficultyText(diff)
@@ -153,7 +161,7 @@ const selectedDifficultyText = (diff: string) => {
 
             <!-- rating -->
             <div
-              class="text-3xl font-black"
+              class="text-3xl font-black transition-colors duration-700 ease-out"
               :class="
                 diff === lane.selected.value?.difficulty
                   ? selectedDifficultyText(diff)
@@ -165,7 +173,7 @@ const selectedDifficultyText = (diff: string) => {
 
             <!-- selected label -->
             <div
-              class="min-h-[1rem] text-[0.65rem] tracking-wide uppercase"
+              class="min-h-[1rem] text-[0.65rem] tracking-wide uppercase transition-colors duration-700 ease-out"
               :class="
                 diff === lane.selected.value?.difficulty
                   ? selectedDifficultyText(diff)

@@ -37,19 +37,8 @@ function randomize() {
 
     <!-- content -->
     <div class="grid grid-cols-1 gap-4 md:grid-cols-[1.1fr_0.9fr]">
-      <!-- result -->
-      <div
-        class="border-charcoal/5 rounded-[24px] border bg-white/35 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-md"
-      >
-        <ResultPanel />
-      </div>
-
-      <!-- filters -->
-      <div
-        class="border-charcoal/5 rounded-[24px] border bg-white/35 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-md"
-      >
-        <FilterPanel />
-      </div>
+      <ResultPanel />
+      <FilterPanel />
     </div>
   </div>
 </template>
