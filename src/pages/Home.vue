@@ -24,25 +24,25 @@ const version = __APP_VERSION__;
 </script>
 
 <template>
-  <div class="bg-cream relative min-h-screen overflow-hidden">
+  <div class="bg-cream relative min-h-dvh overflow-hidden">
     <!-- background -->
     <!-- large warm glow -->
     <motion.div
       :animate="{
-        x: [0, 50, -20, 0],
-        y: [0, -20, 10, 0],
+        x: [0, 18, -10, 0],
+        y: [0, -10, 6, 0],
         scale: [1, 1.08, 1],
-        opacity: [0.28, 0.38, 0.28],
+        opacity: [0.24, 0.34, 0.24],
       }"
       :transition="{
         duration: 22,
         repeat: Infinity,
         ease: 'easeInOut',
       }"
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_65%,#f4cb8f_0%,transparent_72%)]"
+      class="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_50%_65%,#f4cb8f_0%,transparent_72%)]"
     />
 
-    <div class="relative z-10 flex min-h-screen flex-col">
+    <div class="relative z-10 flex min-h-dvh flex-col">
       <header class="font-display relative z-20">
         <!-- desktop -->
         <div
