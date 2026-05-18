@@ -45,7 +45,7 @@ const currentSongCount = computed(() => songs.songs.length);
 
       <button
         @click="shufflePreview"
-        class="border-charcoal/10 text-charcoal flex flex-row hover:border-purple/20 hover:bg-purple/10 rounded-full border bg-white/50 px-4 py-2 text-xs font-medium tracking-wide uppercase transition-all duration-150"
+        class="border-charcoal/10 text-charcoal hover:border-purple/20 hover:bg-purple/10 flex flex-row rounded-full border bg-white/50 px-4 py-2 text-xs font-medium tracking-wide uppercase transition-all duration-150"
       >
         <div class="i-ph-shuffle-angular my-auto mr-2" />
         Shuffle
@@ -62,10 +62,10 @@ const currentSongCount = computed(() => songs.songs.length);
         class="group hover:border-purple/10 rounded-[18px] border border-transparent bg-white/45 p-4 transition-all duration-150 hover:bg-white/70"
       >
         <!-- top row -->
-        <div class="flex items-start justify-between gap-3">
+        <div class="flex items-start justify-between gap-2">
           <!-- title -->
           <div class="min-w-0 flex-1">
-            <div class="text-charcoal truncate text-sm font-semibold">
+            <div class="text-charcoal max-w-75% truncate text-sm font-semibold">
               {{ song.title }}
             </div>
 
@@ -79,6 +79,11 @@ const currentSongCount = computed(() => songs.songs.length);
             class="bg-purple/10 text-purple shrink-0 rounded-full px-2.5 py-1 text-[0.65rem] font-semibold tracking-wide uppercase"
           >
             {{ song.album.code }}
+          </div>
+          <div
+            class="bg-coral/10 text-coral shrink-0 rounded-full px-2.5 py-1 text-[0.65rem] font-semibold tracking-wide uppercase"
+          >
+            {{ song.access }}
           </div>
         </div>
 

@@ -6,6 +6,7 @@ export const useFilterStore = defineStore('filters', {
     difficulties: new Set<Difficulty>(),
     tags: new Set<string>(),
     albums: new Set<string>(),
+    access: new Set<string>("free"),
 
     minRating: 1,
     maxRating: 19,
@@ -30,6 +31,22 @@ export const useFilterStore = defineStore('filters', {
         : this.albums.add(album)
     },
 
+    toggleAccess(access: string) {
+      if (
+        access === "free" &&
+        this.access.size === 1 &&
+        this.access.has("free")
+      ) {
+        return;
+      }
+
+      if (this.access.has(access)) {
+        this.access.delete(access);
+      } else {
+        this.access.add(access);
+      }
+    },
+
     setMinRating(v: number) {
       this.minRating = v
       if (this.maxRating < v) this.maxRating = v
@@ -46,6 +63,8 @@ export const useFilterStore = defineStore('filters', {
       this.albums.clear()
       this.minRating = 1
       this.maxRating = 19
+      this.access.clear()
+      this.access.add("free")
     },
   },
 })

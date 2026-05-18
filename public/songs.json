@@ -1,13 +1,12 @@
 [
   {
     "title": "Be My Star",
-    "artists": [
-      "T.T. Star"
-    ],
+    "artists": ["T.T. Star"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 2,
       "NORMAL": 5,
@@ -15,21 +14,16 @@
       "EXPERT": 15
     },
     "sortNumber": 1,
-    "tags": [
-      "Vocal",
-      "Event",
-      "TTStar"
-    ]
+    "tags": ["Vocal", "Event", "TTStar"]
   },
   {
     "title": "All Eyes On Me",
-    "artists": [
-      "T.T. Star"
-    ],
+    "artists": ["T.T. Star"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 3,
       "NORMAL": 7,
@@ -37,21 +31,16 @@
       "EXPERT": 16
     },
     "sortNumber": 2,
-    "tags": [
-      "Vocal",
-      "Event",
-      "TTStar"
-    ]
+    "tags": ["Vocal", "Event", "TTStar"]
   },
   {
     "title": "Accelerate",
-    "artists": [
-      "T.T. Star"
-    ],
+    "artists": ["T.T. Star"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 3,
       "NORMAL": 7,
@@ -59,21 +48,16 @@
       "EXPERT": 13
     },
     "sortNumber": 3,
-    "tags": [
-      "Vocal",
-      "Event",
-      "TTStar"
-    ]
+    "tags": ["Vocal", "Event", "TTStar"]
   },
   {
     "title": "Clickbait",
-    "artists": [
-      "T.T. Star"
-    ],
+    "artists": ["T.T. Star"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 2,
       "NORMAL": 6,
@@ -81,22 +65,16 @@
       "EXPERT": 13
     },
     "sortNumber": 4,
-    "tags": [
-      "Vocal",
-      "Event",
-      "TTStar"
-    ]
+    "tags": ["Vocal", "Event", "TTStar"]
   },
   {
     "title": "Satellites",
-    "artists": [
-      "NieN",
-      "AmaLee"
-    ],
+    "artists": ["NieN", "AmaLee"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 1,
       "NORMAL": 5,
@@ -104,22 +82,16 @@
       "EXPERT": 11
     },
     "sortNumber": 5,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "THE REDHOOD",
-    "artists": [
-      "Djerv",
-      "Cosmograph",
-      "NieN"
-    ],
+    "artists": ["Djerv", "Cosmograph", "NieN"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 2,
       "NORMAL": 7,
@@ -127,21 +99,16 @@
       "EXPERT": 16
     },
     "sortNumber": 6,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "The Clarion Call",
-    "artists": [
-      "Cosmograph",
-      "Pernelle"
-    ],
+    "artists": ["Cosmograph", "Pernelle"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 3,
       "NORMAL": 8,
@@ -149,21 +116,16 @@
       "EXPERT": 14
     },
     "sortNumber": 7,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "Unbreakable",
-    "artists": [
-      "Cosmograph",
-      "Yurisa"
-    ],
+    "artists": ["Cosmograph", "Yurisa"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 3,
       "NORMAL": 8,
@@ -171,21 +133,16 @@
       "EXPERT": 15
     },
     "sortNumber": 8,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "Unbreakable Sphere",
-    "artists": [
-      "Cosmograph",
-      "Sunnie"
-    ],
+    "artists": ["Cosmograph", "Sunnie"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 2,
       "NORMAL": 5,
@@ -193,22 +150,16 @@
       "EXPERT": 14
     },
     "sortNumber": 9,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "We RISE",
-    "artists": [
-      "Cosmograph",
-      "NieN",
-      "OYHN"
-    ],
+    "artists": ["Cosmograph", "NieN", "OYHN"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 3,
       "NORMAL": 5,
@@ -216,20 +167,16 @@
       "EXPERT": 13
     },
     "sortNumber": 10,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "Artificial Shangri-La",
-    "artists": [
-      "Cosmograph"
-    ],
+    "artists": ["Cosmograph"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 2,
       "NORMAL": 6,
@@ -237,19 +184,16 @@
       "EXPERT": 14
     },
     "sortNumber": 11,
-    "tags": [
-      "Menu"
-    ]
+    "tags": ["Menu"]
   },
   {
     "title": "Take My Money",
-    "artists": [
-      "Cosmograph"
-    ],
+    "artists": ["Cosmograph"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 1,
       "NORMAL": 5,
@@ -257,19 +201,16 @@
       "EXPERT": 14
     },
     "sortNumber": 12,
-    "tags": [
-      "Menu"
-    ]
+    "tags": ["Menu"]
   },
   {
     "title": "Apricot",
-    "artists": [
-      "Kagi"
-    ],
+    "artists": ["Kagi"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 4,
       "NORMAL": 7,
@@ -277,19 +218,16 @@
       "EXPERT": 17
     },
     "sortNumber": 13,
-    "tags": [
-      "Story"
-    ]
+    "tags": ["Story"]
   },
   {
     "title": "Afterglow",
-    "artists": [
-      "Cosmograph"
-    ],
+    "artists": ["Cosmograph"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 4,
       "NORMAL": 8,
@@ -297,20 +235,16 @@
       "EXPERT": 17
     },
     "sortNumber": 14,
-    "tags": [
-      "Battle"
-    ]
+    "tags": ["Battle"]
   },
   {
     "title": "Rising Higher",
-    "artists": [
-      "NieN",
-      "CielA"
-    ],
+    "artists": ["NieN", "CielA"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 2,
       "NORMAL": 8,
@@ -318,21 +252,16 @@
       "EXPERT": 16
     },
     "sortNumber": 15,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "Archemy",
-    "artists": [
-      "Feryquitous",
-      "Risa Yuzuki"
-    ],
+    "artists": ["Feryquitous", "Risa Yuzuki"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 1,
       "NORMAL": 5,
@@ -340,20 +269,16 @@
       "EXPERT": 14
     },
     "sortNumber": 16,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "So Good",
-    "artists": [
-      "Stessie"
-    ],
+    "artists": ["Stessie"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 1,
       "NORMAL": 6,
@@ -361,19 +286,16 @@
       "EXPERT": 14
     },
     "sortNumber": 17,
-    "tags": [
-      "Story"
-    ]
+    "tags": ["Story"]
   },
   {
     "title": "I FEEL SO ALIVE",
-    "artists": [
-      "Cosmograph"
-    ],
+    "artists": ["Cosmograph"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 3,
       "NORMAL": 7,
@@ -381,20 +303,16 @@
       "EXPERT": 15
     },
     "sortNumber": 18,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "Rapture Storm",
-    "artists": [
-      "NieN"
-    ],
+    "artists": ["NieN"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 5,
       "NORMAL": 11,
@@ -402,19 +320,16 @@
       "EXPERT": 19
     },
     "sortNumber": 19,
-    "tags": [
-      "Battle"
-    ]
+    "tags": ["Battle"]
   },
   {
     "title": "Void Seeker",
-    "artists": [
-      "Crayvxn"
-    ],
+    "artists": ["Crayvxn"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 4,
       "NORMAL": 9,
@@ -422,19 +337,16 @@
       "EXPERT": 18
     },
     "sortNumber": 20,
-    "tags": [
-      "Battle"
-    ]
+    "tags": ["Battle"]
   },
   {
     "title": "FATAL MAID",
-    "artists": [
-      "Cynax"
-    ],
+    "artists": ["Cynax"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 5,
       "NORMAL": 10,
@@ -442,19 +354,16 @@
       "EXPERT": 19
     },
     "sortNumber": 21,
-    "tags": [
-      "Event"
-    ]
+    "tags": ["Event"]
   },
   {
     "title": "Counter Attack",
-    "artists": [
-      "Cosmograph"
-    ],
+    "artists": ["Cosmograph"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 2,
       "NORMAL": 6,
@@ -462,19 +371,16 @@
       "EXPERT": 16
     },
     "sortNumber": 22,
-    "tags": [
-      "Battle"
-    ]
+    "tags": ["Battle"]
   },
   {
     "title": "JINX PLAYER",
-    "artists": [
-      "Cosmograph"
-    ],
+    "artists": ["Cosmograph"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 5,
       "NORMAL": 10,
@@ -482,20 +388,16 @@
       "EXPERT": 18
     },
     "sortNumber": 23,
-    "tags": [
-      "Event"
-    ]
+    "tags": ["Event"]
   },
   {
     "title": "Yes, My Commander",
-    "artists": [
-      "NieN",
-      "CielA"
-    ],
+    "artists": ["NieN", "CielA"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 3,
       "NORMAL": 7,
@@ -503,20 +405,16 @@
       "EXPERT": 14
     },
     "sortNumber": 24,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "We Begin",
-    "artists": [
-      "Yu-dachi"
-    ],
+    "artists": ["Yu-dachi"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 4,
       "NORMAL": 9,
@@ -524,20 +422,16 @@
       "EXPERT": 18
     },
     "sortNumber": 25,
-    "tags": [
-      "Event"
-    ]
+    "tags": ["Event"]
   },
   {
     "title": "Hurricanes",
-    "artists": [
-      "Cosmograph",
-      "Pernelle"
-    ],
+    "artists": ["Cosmograph", "Pernelle"],
     "album": {
       "name": "TRACING THE STARS",
       "code": "TTS"
     },
+    "access": "free",
     "maps": {
       "CASUAL": 4,
       "NORMAL": 8,
@@ -545,20 +439,16 @@
       "EXPERT": 17
     },
     "sortNumber": 26,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "Pretty STAR",
-    "artists": [
-      "Pretty"
-    ],
+    "artists": ["Pretty"],
     "album": {
       "name": "T.T.S EXTENSION PACK V.1",
       "code": "TTS_EP_V1"
     },
+    "access": "paid",
     "maps": {
       "CASUAL": 4,
       "NORMAL": 9,
@@ -566,20 +456,16 @@
       "EXPERT": 18
     },
     "sortNumber": 27,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "The Harvester",
-    "artists": [
-      "Cosmograph"
-    ],
+    "artists": ["Cosmograph"],
     "album": {
       "name": "T.T.S EXTENSION PACK V.1",
       "code": "TTS_EP_V1"
     },
+    "access": "paid",
     "maps": {
       "CASUAL": 4,
       "NORMAL": 7,
@@ -587,20 +473,16 @@
       "EXPERT": 16
     },
     "sortNumber": 28,
-    "tags": [
-      "Vocal",
-      "Battle"
-    ]
+    "tags": ["Vocal", "Battle"]
   },
   {
     "title": "The Collector",
-    "artists": [
-      "Cosmograph"
-    ],
+    "artists": ["Cosmograph"],
     "album": {
       "name": "T.T.S EXTENSION PACK V.1",
       "code": "TTS_EP_V1"
     },
+    "access": "paid",
     "maps": {
       "CASUAL": 2,
       "NORMAL": 6,
@@ -608,19 +490,16 @@
       "EXPERT": 14
     },
     "sortNumber": 29,
-    "tags": [
-      "Battle"
-    ]
+    "tags": ["Battle"]
   },
   {
     "title": "Khamsin",
-    "artists": [
-      "Cosmograph"
-    ],
+    "artists": ["Cosmograph"],
     "album": {
       "name": "T.T.S EXTENSION PACK V.1",
       "code": "TTS_EP_V1"
     },
+    "access": "paid",
     "maps": {
       "CASUAL": 3,
       "NORMAL": 8,
@@ -628,19 +507,16 @@
       "EXPERT": 17
     },
     "sortNumber": 30,
-    "tags": [
-      "Battle"
-    ]
+    "tags": ["Battle"]
   },
   {
     "title": "Bullet Storm",
-    "artists": [
-      "NieN"
-    ],
+    "artists": ["NieN"],
     "album": {
       "name": "T.T.S EXTENSION PACK V.1",
       "code": "TTS_EP_V1"
     },
+    "access": "paid",
     "maps": {
       "CASUAL": 5,
       "NORMAL": 10,
@@ -648,19 +524,16 @@
       "EXPERT": 19
     },
     "sortNumber": 31,
-    "tags": [
-      "Battle"
-    ]
+    "tags": ["Battle"]
   },
   {
     "title": "Silver mane",
-    "artists": [
-      "Feryquitous"
-    ],
+    "artists": ["Feryquitous"],
     "album": {
       "name": "T.T.S EXTENSION PACK V.1",
       "code": "TTS_EP_V1"
     },
+    "access": "paid",
     "maps": {
       "CASUAL": 3,
       "NORMAL": 9,
@@ -668,20 +541,16 @@
       "EXPERT": 17
     },
     "sortNumber": 32,
-    "tags": [
-      "Battle"
-    ]
+    "tags": ["Battle"]
   },
   {
     "title": "Juvenile Days",
-    "artists": [
-      "seibin",
-      "chaerin"
-    ],
+    "artists": ["seibin", "chaerin"],
     "album": {
       "name": "T.T.S EXTENSION PACK V.1",
       "code": "TTS_EP_V1"
     },
+    "access": "paid",
     "maps": {
       "CASUAL": 1,
       "NORMAL": 5,
@@ -689,21 +558,16 @@
       "EXPERT": 14
     },
     "sortNumber": 33,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "CLAY! MORE!",
-    "artists": [
-      "Cosmograph",
-      "B.A. Wheeler"
-    ],
+    "artists": ["Cosmograph", "B.A. Wheeler"],
     "album": {
       "name": "T.T.S EXTENSION PACK V.1",
       "code": "TTS_EP_V1"
     },
+    "access": "paid",
     "maps": {
       "CASUAL": 4,
       "NORMAL": 8,
@@ -711,20 +575,16 @@
       "EXPERT": 16
     },
     "sortNumber": 34,
-    "tags": [
-      "Vocal",
-      "Event"
-    ]
+    "tags": ["Vocal", "Event"]
   },
   {
     "title": "Boogie Night",
-    "artists": [
-      "roop"
-    ],
+    "artists": ["roop"],
     "album": {
       "name": "T.T.S EXTENSION PACK V.1",
       "code": "TTS_EP_V1"
     },
+    "access": "paid",
     "maps": {
       "CASUAL": 3,
       "NORMAL": 8,
@@ -732,8 +592,6 @@
       "EXPERT": 15
     },
     "sortNumber": 35,
-    "tags": [
-      "Story"
-    ]
+    "tags": ["Story"]
   }
 ]

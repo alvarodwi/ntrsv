@@ -5,7 +5,8 @@ export interface Song {
     id: string
     title: string
     artists: string[]
-    album: Album
+    album: Album,
+    access: 'free' | 'paid'
     maps: Partial<Record<Difficulty, number>>
     sortNumber: number
     tags: string[]
