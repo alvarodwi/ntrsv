@@ -8,6 +8,7 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  dark: 'class',
   presets: [
     presetWind3(),
     presetAttributify(),

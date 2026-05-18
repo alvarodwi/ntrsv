@@ -46,32 +46,32 @@ const difficultyFilterClass = (diff: Difficulty) => {
     case "casual":
       return active
         ? "border-[#9eac53] bg-[#9eac53]/20 text-[#9eac53]"
-        : "border-[#9eac53]/20 bg-white/40 text-charcoal/60 hover:bg-[#9eac53]/10";
+        : "border-[#9eac53]/20 bg-white/40 dark:bg-charcoal/40 text-charcoal/60 dark:text-white/60 hover:bg-white/5 dark:hover:bg-charcoal/5";
 
     case "normal":
       return active
         ? "border-[#c78a03] bg-[#c78a03]/20 text-[#c78a03]"
-        : "border-[#c78a03]/20 bg-white/40 text-charcoal/60 hover:bg-[#c78a03]/10";
+        : "border-[#c78a03]/20 bg-white/40 dark:bg-charcoal/40 text-charcoal/60 dark:text-white/60 hover:bg-white/5 dark:hover:bg-charcoal/5";
 
     case "hard":
       return active
         ? "border-[#f03055] bg-[#f03055]/20 text-[#f03055]"
-        : "border-[#f03055]/20 bg-white/40 text-charcoal/60 hover:bg-[#f03055]/10";
+        : "border-[#f03055]/20 bg-white/40 dark:bg-charcoal/40 text-charcoal/60 dark:text-white/60 hover:bg-white/5 dark:hover:bg-charcoal/5";
 
     case "expert":
       return active
         ? "border-[#cc7dfa] bg-[#cc7dfa]/20 text-[#cc7dfa]"
-        : "border-[#cc7dfa]/20 bg-white/40 text-charcoal/60 hover:bg-[#cc7dfa]/10";
+        : "border-[#cc7dfa]/20 bg-white/40 dark:bg-charcoal/40 text-charcoal/60 dark:text-white/60 hover:bg-white/5 dark:hover:bg-charcoal/5";
 
     default:
-      return "border-charcoal/10 bg-white/40 text-charcoal";
+      return "border-charcoal/10 bg-white/40 dark:bg-charcoal/40 dark:text-white text-charcoal";
   }
 };
 </script>
 
 <template>
   <section
-    class="border-charcoal/5 flex h-full flex-col gap-4 rounded-[24px] border bg-white/55 p-4 backdrop-blur-md sm:p-5 md:gap-6 md:p-6"
+    class="border-charcoal/5 flex h-full flex-col gap-4 rounded-[24px] border bg-white/55 p-4 backdrop-blur-md sm:p-5 md:gap-6 md:p-6 dark:border-white/5 dark:bg-white/5"
   >
     <Transition
       enter-active-class="transition-opacity duration-700 ease-out"
@@ -87,7 +87,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
       >
         <button
           @click="filter.reset()"
-          class="text-charcoal/50 hover:text-charcoal border-charcoal/10 flex items-center justify-center rounded-full border px-3 py-1 text-[0.7rem] font-medium transition-colors duration-300 hover:border-black/5 hover:bg-black/[0.03]"
+          class="text-charcoal/50 hover:text-charcoal border-charcoal/10 hover:border-charcoal/5 hover:bg-charcoal/[0.03] flex items-center justify-center rounded-full border px-3 py-1 text-[0.7rem] font-medium transition-colors duration-300 dark:border-white/10 dark:text-white/50 hover:dark:border-white/5 hover:dark:bg-white/[0.03] hover:dark:text-white"
         >
           <div class="i-ph-broom mr-2" />
           Reset
@@ -101,7 +101,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="d in DifficultyList"
           :key="d"
           @click="filter.toggleDifficulty(d)"
-          class="rounded-full border px-3 py-1.5 text-[0.7rem] font-semibold tracking-wide uppercase transition-all duration-150 sm:px-4 sm:py-2 sm:text-xs"
+          class="rounded-full border px-3 py-1.5 text-[0.7rem] font-semibold tracking-wide uppercase transition-all duration-150 ease-in sm:px-4 sm:py-2 sm:text-xs"
           :class="difficultyFilterClass(d)"
         >
           {{ d }}
@@ -114,7 +114,9 @@ const difficultyFilterClass = (diff: Difficulty) => {
       <div class="flex flex-col gap-4">
         <!-- MIN -->
         <div class="flex items-center gap-3">
-          <span class="text-charcoal/60 w-10 text-xs font-medium uppercase">
+          <span
+            class="text-charcoal/60 w-10 text-xs font-medium uppercase dark:text-white/60"
+          >
             Min
           </span>
 
@@ -128,17 +130,21 @@ const difficultyFilterClass = (diff: Difficulty) => {
                 Number(($event.target as HTMLInputElement).value),
               )
             "
-            class="accent-purple w-full"
+            class="accent-purple w-full dark:opacity-60"
           />
 
-          <span class="text-charcoal w-6 text-right text-sm font-semibold">
+          <span
+            class="text-charcoal/60 w-6 text-right text-sm font-semibold dark:text-white/60"
+          >
             {{ filter.minRating }}
           </span>
         </div>
 
         <!-- MAX -->
         <div class="flex items-center gap-3">
-          <span class="text-charcoal/60 w-10 text-xs font-medium uppercase">
+          <span
+            class="text-charcoal/60 w-10 text-xs font-medium uppercase dark:text-white/60"
+          >
             Max
           </span>
 
@@ -152,24 +158,26 @@ const difficultyFilterClass = (diff: Difficulty) => {
                 Number(($event.target as HTMLInputElement).value),
               )
             "
-            class="accent-purple w-full"
+            class="accent-purple w-full dark:opacity-60"
           />
 
-          <span class="text-charcoal w-6 text-right text-sm font-semibold">
+          <span
+            class="text-charcoal/60 w-6 text-right text-sm font-semibold dark:text-white/60"
+          >
             {{ filter.maxRating }}
           </span>
         </div>
 
         <!-- RANGE DISPLAY -->
         <div
-          class="text-charcoal/50 bg-purple/10 rounded-full px-3 py-1 text-xs tracking-wide"
+          class="text-charcoal/50 bg-purple/10 dark:bg-purple/20 rounded-full px-3 py-1 text-xs tracking-wide dark:text-white/50"
         >
           ★ {{ filter.minRating }} – {{ filter.maxRating }}
         </div>
       </div>
     </FilterSection>
 
-    <div class="border-charcoal/5 border-t" />
+    <div class="border-charcoal/5 border-t dark:border-white/5" />
 
     <!-- Access -->
     <FilterSection title="Access" v-if="false">
@@ -178,12 +186,12 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="access in allAccess"
           :key="access"
           @click="filter.toggleAccess(access)"
-          class="border-charcoal/10 text-charcoal/70 rounded-full border px-2.5 py-1 text-xs transition-[background-color,border-color,color,transform] duration-300 ease-out sm:px-3 sm:py-1.5 sm:text-xs"
+          class="border-charcoal/10 text-charcoal/70 rounded-full border px-2.5 py-1 text-xs transition-[background-color,border-color,color,transform] duration-300 ease-out sm:px-3 sm:py-1.5 sm:text-xs dark:border-white/20 dark:text-white/70"
           :disabled="access === 'free'"
           :class="
             filter.access.has(access)
               ? 'border-coral/40 bg-coral/25 text-coral translate-y-[-1px] font-medium'
-              : 'hover:bg-coral/10 text-charcoal/50'
+              : 'hover:bg-coral/10 text-charcoal/50 hover:dark:bg-coral/15 dark:text-white/50 dark:hover:text-white'
           "
         >
           {{ access.toUpperCase() }}
@@ -198,11 +206,11 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="album in allAlbums"
           :key="album.code"
           @click="filter.toggleAlbum(album.code)"
-          class="border-charcoal/10 text-charcoal/70 rounded-full border px-2.5 py-1 text-xs transition-[background-color,border-color,color,transform] duration-300 ease-out sm:px-3 sm:py-1.5 sm:text-xs"
+          class="border-charcoal/10 text-charcoal/70 rounded-full border px-2.5 py-1 text-xs transition-[background-color,border-color,color,transform] duration-300 ease-out sm:px-3 sm:py-1.5 sm:text-xs dark:border-white/20 dark:text-white/70"
           :class="
             filter.albums.has(album.code)
               ? 'border-purple/40 bg-purple/25 text-purple translate-y-[-1px] font-medium'
-              : 'hover:bg-purple/10 text-charcoal/50'
+              : 'hover:bg-purple/10 text-charcoal/50 hover:dark:bg-purple/15 dark:text-white/50 dark:hover:text-white'
           "
         >
           {{ album.code }}
@@ -217,11 +225,11 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="tag in allTags"
           :key="tag"
           @click="filter.toggleTag(tag)"
-          class="border-charcoal/10 text-charcoal/70 rounded-full border px-2.5 py-1 text-xs text-[0.7rem] transition-[background-color,border-color,color,transform] duration-300 ease-out sm:px-3 sm:py-1.5"
+          class="border-charcoal/10 rounded-full border px-2.5 py-1 text-xs text-[0.7rem] transition-[background-color,border-color,color,transform] duration-300 ease-out sm:px-3 sm:py-1.5 dark:border-white/20 dark:text-white/70"
           :class="
             filter.tags.has(tag)
-              ? 'border-gold/40 bg-gold/25 text-charcoal translate-y-[-1px] font-medium'
-              : 'hover:bg-gold/10 text-charcoal/50'
+              ? 'border-gold/40 bg-gold/25 text-charcoal translate-y-[-1px] font-medium dark:text-white'
+              : 'hover:bg-gold/10 text-charcoal/50 hover:dark:bg-gold/15 dark:text-white/50 dark:hover:text-white'
           "
         >
           {{ tag }}

@@ -13,28 +13,19 @@ import SongsUploadPanel from "@/components/config/SongUploadPanel.vue";
         Configuration
       </div>
 
-      <h1 class="text-charcoal text-3xl font-black">Song Database</h1>
+      <h1 class="text-charcoal dark:text-white text-3xl font-black">Song Database</h1>
 
-      <p class="text-charcoal/60 max-w-xl text-sm leading-relaxed">
+      <p class="text-charcoal/60 dark:text-white/60 max-w-xl text-sm leading-relaxed">
         Upload, preview, and manage your local song data used by the randomizer.
       </p>
     </div>
 
     <!-- panels -->
-    <div class="grid flex-1 grid-cols-1 gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+    <div class="grid flex-1 grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] p-8">
       <!-- upload -->
-      <div
-        class="border-charcoal/5 rounded-[24px] border bg-white/45 p-5 backdrop-blur-md"
-      >
-        <SongsUploadPanel />
-      </div>
-
+      <SongsUploadPanel />
       <!-- preview -->
-      <div
-        class="border-charcoal/5 rounded-[24px] border bg-white/45 p-5 backdrop-blur-md"
-      >
-        <SongsPreviewPanel />
-      </div>
+      <SongsPreviewPanel />
     </div>
   </div>
 </template>
