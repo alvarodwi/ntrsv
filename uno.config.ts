@@ -4,8 +4,9 @@ import {
   presetWind3,
   presetIcons,
   presetAttributify,
-  presetWebFonts,
+  presetWebFonts
 } from 'unocss'
+import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
 
 export default defineConfig({
   dark: 'class',
@@ -22,6 +23,11 @@ export default defineConfig({
         display: 'Funnel Display',
         ui: 'Funnel Sans',
       },
+      processors: createLocalFontProcessor({
+        cacheDir: 'node_modules/.cache/unocss/fonts',
+        fontAssetsDir: 'public/assets/fonts',
+        fontServeBaseUrl: '/assets/fonts',
+      })
     }),
   ],
   theme: {
