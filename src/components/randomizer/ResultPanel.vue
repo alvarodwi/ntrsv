@@ -44,16 +44,26 @@ const selectedDifficultyText = (diff: string) => {
     class="border-charcoal/5 flex h-full flex-col items-center justify-center rounded-[24px] border bg-white/60 p-6 backdrop-blur-md"
   >
     <!-- EMPTY STATE -->
-    <div
+    <motion.div
       v-if="!lane.selected.value"
-      class="flex flex-col items-center gap-2 text-center"
+      :animate="{ opacity: [0.7, 1, 0.7] }"
+      :transition="{
+        duration: 5,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      }"
+      class="flex flex-col items-center gap-3 text-center"
     >
-      <div class="text-charcoal/40 text-sm tracking-[0.2em] uppercase">
-        No Selection
+      <div class="i-ph-waveform text-charcoal/15 text-5xl" />
+
+      <div class="text-charcoal/40 text-sm tracking-[0.25em] uppercase">
+        Ready to Randomize
       </div>
 
-      <p class="text-charcoal/60">Press randomize to generate a chart</p>
-    </div>
+      <p class="text-charcoal/55 text-sm">
+        Press randomize to generate a chart
+      </p>
+    </motion.div>
 
     <!-- RESULT STATE -->
     <div

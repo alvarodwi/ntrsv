@@ -74,7 +74,7 @@ const selectedDifficultyButton = (diff: string) => {
       return "bg-[#c78a03] text-black hover:brightness-110";
 
     case "hard":
-      return "bg-[#f03055] text-white hover:brightness-110";
+      return "bg-[#f03055] text-black hover:brightness-110";
 
     case "expert":
       return "bg-[#cc7dfa] text-black hover:brightness-110";
@@ -128,23 +128,37 @@ const difficultyGlowClass = (diff: string) => {
     <!-- content -->
     <div class="relative z-10 flex flex-1 flex-col justify-end p-3">
       <!-- empty -->
-      <div
+      <motion.div
         v-if="!lane.selected.value"
-        class="mb-12 text-center text-sm text-white/40"
+        :animate="{ opacity: [0.45, 0.7, 0.45] }"
+        :transition="{
+          duration: 4,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }"
+        class="my-2 flex flex-col items-center gap-2 text-center"
       >
-        No selection yet
-      </div>
+        <!-- icon -->
+        <div class="i-ph-waveform text-5xl text-white/10" />
+
+        <!-- title -->
+        <div class="text-[0.7rem] tracking-[0.28em] text-white/35 uppercase">
+          Standing By
+        </div>
+
+        <!-- hint -->
+        <p class="text-sm text-white/25">Randomize from the main window</p>
+      </motion.div>
 
       <!-- active -->
       <motion.div
         v-else
         :key="lane.selected.value.song.id"
-        :initial="{ opacity: 0.85, y: 4 }"
+        :initial="{ opacity: 0, y: 2 }"
         :animate="{ opacity: 1, y: 0 }"
         :transition="{
-          type: 'spring',
-          stiffness: 260,
-          damping: 22,
+          duration: 0.35,
+          ease: 'easeOut',
         }"
         class="rounded-[24px] border border-white/5 bg-white/[0.03] p-3 backdrop-blur-xl"
       >
@@ -197,7 +211,7 @@ const difficultyGlowClass = (diff: string) => {
 
           <!-- button -->
           <button
-            class="flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.7rem] font-semibold tracking-wide uppercase transition-all duration-150 hover:-translate-y-0.5 hover:scale-[1.02]  active:translate-y-0 active:scale-[0.98]"
+            class="flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.7rem] font-semibold tracking-wide uppercase transition-all duration-150 hover:-translate-y-0.5 hover:scale-[1.02] active:translate-y-0 active:scale-[0.98]"
             :class="selectedDifficultyButton(lane.selected.value.difficulty)"
             @click="randomize"
           >
