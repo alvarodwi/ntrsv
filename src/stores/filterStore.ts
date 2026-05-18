@@ -39,5 +39,13 @@ export const useFilterStore = defineStore('filters', {
       this.maxRating = v
       if (this.minRating > v) this.minRating = v
     },
+
+    reset() {
+      this.difficulties.clear()
+      this.tags.clear()
+      this.albums.clear()
+      this.minRating = 1
+      this.maxRating = 19
+    },
   },
 })

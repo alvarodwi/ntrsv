@@ -25,6 +25,16 @@ const allAlbums = computed(() =>
   Array.from(new Map(songs.songs.map((s) => [s.album.code, s.album])).values()),
 );
 
+const hasActiveFilters = computed(() => {
+  return (
+    filter.tags.size > 0 ||
+    filter.albums.size > 0 ||
+    filter.minRating !== 1 ||
+    filter.maxRating !== 19 ||
+    filter.difficulties.size > 0
+  );
+});
+
 const difficultyFilterClass = (diff: Difficulty) => {
   const active = filter.difficulties.has(diff);
 
@@ -59,9 +69,30 @@ const difficultyFilterClass = (diff: Difficulty) => {
   <section
     class="border-charcoal/5 flex h-full flex-col gap-4 rounded-[24px] border bg-white/55 p-4 backdrop-blur-md sm:p-5 md:gap-6 md:p-6"
   >
+    <Transition
+      enter-active-class="transition-opacity duration-700 ease-out"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition-opacity duration-400 ease-in"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <div
+        v-if="hasActiveFilters"
+        class="absolute top-4 right-4 flex items-center"
+      >
+        <button
+          @click="filter.reset()"
+          class="text-charcoal/50 hover:text-charcoal border-charcoal/10 flex items-center justify-center rounded-full border px-3 py-1 text-[0.7rem] font-medium transition-colors duration-300 hover:border-black/5 hover:bg-black/[0.03]"
+        >
+          <div class="i-ph-broom mr-2" />
+          Reset
+        </button>
+      </div>
+    </Transition>
     <!-- Difficulty -->
     <FilterSection title="Difficulty">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+      <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
         <button
           v-for="d in DifficultyList"
           :key="d"
@@ -134,7 +165,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
       </div>
     </FilterSection>
 
-    <div class="border-charcoal/5 border-t pt-4"/>
+    <div class="border-charcoal/5 border-t" />
 
     <!-- Tags -->
     <FilterSection title="Tags">
@@ -143,7 +174,7 @@ const difficultyFilterClass = (diff: Difficulty) => {
           v-for="tag in allTags"
           :key="tag"
           @click="filter.toggleTag(tag)"
-          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs text-[0.7rem] transition-all duration-150"
+          class="border-charcoal/10 text-charcoal/70 rounded-full border bg-white/40 px-2.5 py-1 text-xs text-[0.7rem] transition-all duration-150 sm:px-3 sm:py-1.5"
           :class="
             filter.tags.has(tag)
               ? 'border-gold bg-gold/20 text-charcoal'
