@@ -9,7 +9,7 @@ import {
 } from "@/services/songService";
 
 const songs = useSongStore();
-const currentSongCount = computed(() => songs.songs.length);
+const bundledSongsUrl = import.meta.env.BASE_URL + "songs.json";
 
 const customLoaded = ref(false);
 const uploadError = ref<string | null>(null);
@@ -57,25 +57,23 @@ async function resetToBundled() {
     <!-- compact label -->
     <div class="flex items-center justify-between">
       <div>
-        <div class="text-charcoal dark:text-white text-sm font-semibold">Song Import</div>
+        <div class="text-charcoal text-sm font-semibold dark:text-white">
+          Song Import
+        </div>
 
-        <p class="text-charcoal/50 dark:text-white/50 mt-0.5 text-xs">Load custom datasets</p>
-      </div>
-
-      <div
-        class="bg-purple/10 text-purple rounded-full px-3 py-1 text-xs font-semibold"
-      >
-        {{ currentSongCount }} songs
+        <p class="text-charcoal/50 mt-0.5 text-xs dark:text-white/50">
+          Load custom datasets
+        </p>
       </div>
     </div>
 
     <!-- upload workspace -->
     <div
-      class="border-charcoal/5 dark:bg-white/5 flex flex-1 flex-col gap-4 rounded-[24px] border bg-white/35 p-4"
+      class="border-charcoal/5 flex flex-1 flex-col gap-4 rounded-[24px] border bg-white/35 p-4 dark:bg-white/5"
     >
       <!-- upload zone -->
       <label
-        class="border-charcoal/10 hover:border-purple/30d dark:bg-white/10 hover:bg-purple/5 flex flex-1 cursor-pointer flex-col items-center justify-center gap-3 rounded-[20px] border border-dashed bg-white/50 p-6 text-center transition-all duration-150"
+        class="border-charcoal/10 hover:border-purple/30d hover:bg-purple/5 flex flex-1 cursor-pointer flex-col items-center justify-center gap-3 rounded-[20px] border border-dashed bg-white/50 p-6 text-center transition-all duration-150 dark:bg-white/10"
       >
         <div
           class="bg-purple/10 text-purple dark:bg-purple/20 flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold"
@@ -84,11 +82,11 @@ async function resetToBundled() {
         </div>
 
         <div class="flex flex-col gap-1">
-          <div class="text-charcoal dark:text-white text-sm font-semibold">
+          <div class="text-charcoal text-sm font-semibold dark:text-white">
             Upload JSON File
           </div>
 
-          <p class="text-charcoal/50 dark:text-white/50 text-xs">
+          <p class="text-charcoal/50 text-xs dark:text-white/50">
             Select a valid songs.json dataset
           </p>
         </div>
@@ -105,21 +103,31 @@ async function resetToBundled() {
       <div class="flex items-center justify-between gap-3">
         <!-- source -->
         <div class="flex flex-col gap-0.5">
-          <span class="text-charcoal/50 dark:text-white/50 text-xs"> Source </span>
+          <span class="text-charcoal/50 text-xs dark:text-white/50">
+            Source
+          </span>
 
-          <span class="text-charcoal dark:text-white text-sm font-medium">
+          <span class="text-charcoal text-sm font-medium dark:text-white">
             {{
               customLoaded
                 ? `custom (${overrideName || "override"})`
                 : "bundled songs.json"
             }}
           </span>
+          <a
+            v-if="!customLoaded"
+            :href="bundledSongsUrl"
+            target="_blank"
+            class="text-purple text-xs hover:underline"
+          >
+            {{ bundledSongsUrl }}
+          </a>
         </div>
 
         <!-- reset -->
         <button
           type="button"
-          class="border-charcoal/10 text-charcoal hover:border-purple/20 hover:bg-purple/10 dark:border-white/10 dark:text-white dark:hover:border-purple/20 dark:hover:bg-purple/10 rounded-full border bg-white/50 px-4 py-2 text-xs font-medium tracking-wide uppercase transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-40"
+          class="border-charcoal/10 text-charcoal hover:border-purple/20 hover:bg-purple/10 dark:hover:border-purple/20 dark:hover:bg-purple/10 rounded-full border bg-white/50 px-4 py-2 text-xs font-medium tracking-wide uppercase transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-40 dark:border-white/10 dark:text-white"
           @click="resetToBundled"
           :disabled="!customLoaded"
         >

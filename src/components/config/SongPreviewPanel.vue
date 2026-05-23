@@ -59,7 +59,7 @@ const currentSongCount = computed(() => songs.songs.length);
     <div
       v-for="song in previewSongs"
       :key="song.id"
-      class="group hover:border-purple/10 dark:bg-white/5 dark:hover:bg-white/10 rounded-[18px] border border-transparent bg-white/45 p-4 transition-all duration-150 hover:bg-white/70"
+      class="group hover:border-purple/10 rounded-[18px] border border-transparent bg-white/45 p-4 transition-all duration-150 hover:bg-white/70 dark:bg-white/5 dark:hover:bg-white/10"
     >
       <!-- top row -->
       <div class="flex items-start justify-between gap-2">
@@ -71,7 +71,9 @@ const currentSongCount = computed(() => songs.songs.length);
             {{ song.title }}
           </div>
 
-          <div class="text-charcoal/55 dark:text-white/55 mt-1 truncate text-xs">
+          <div
+            class="text-charcoal/55 mt-1 truncate text-xs dark:text-white/55"
+          >
             {{ song.artists.join(", ") }}
           </div>
         </div>
@@ -94,7 +96,7 @@ const currentSongCount = computed(() => songs.songs.length);
         <div
           v-for="(rating, diff) in song.maps"
           :key="diff"
-          class="bg-charcoal/[0.04] dark:bg-white/[0.04] text-charcoal/70 dark:text-white/70 rounded-full px-2 py-1 text-[0.65rem] font-medium"
+          class="bg-charcoal/[0.04] text-charcoal/70 rounded-full px-2 py-1 text-[0.65rem] font-medium dark:bg-white/[0.04] dark:text-white/70"
         >
           {{ diff }} {{ rating }}
         </div>
@@ -103,13 +105,12 @@ const currentSongCount = computed(() => songs.songs.length);
 
     <!-- footer -->
     <div
-      class="bg-charcoal/[0.03] dark:bg-white/[0.03] text-charcoal/60 dark:text-white/60 flex items-center justify-between rounded-full px-4 py-2 text-xs"
+      class="bg-charcoal/[0.03] text-charcoal/60 flex items-center justify-between rounded-full px-4 py-2 text-xs dark:bg-white/[0.03] dark:text-white/60"
     >
-      <span>Sample size: {{ previewSize }}</span>
-
-      <span class="text-purple font-semibold">
-        {{ currentSongCount }} total
-      </span>
+      <span
+        >Sample size: {{ previewSize }} out of
+        {{ currentSongCount }} songs</span
+      >
     </div>
   </section>
 </template>
