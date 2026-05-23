@@ -5,11 +5,11 @@ defineProps<{ title: string }>();
 
 <template>
   <div class="flex flex-col gap-3">
-    <h3
-      class="text-charcoal/70 dark:text-white/70 text-[0.7rem] font-semibold tracking-[0.18em] uppercase"
+    <span
+      class="text-charcoal/70 text-[0.7rem] font-semibold tracking-[0.18em] uppercase dark:text-white/70"
     >
       {{ title }}
-    </h3>
+    </span>
 
     <div class="flex flex-wrap gap-2">
       <slot />
