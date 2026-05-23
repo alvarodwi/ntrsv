@@ -101,16 +101,20 @@ async function resetToBundled() {
           <span class="text-charcoal/50 text-xs dark:text-white/50"> Source </span>
 
           <span class="text-charcoal text-sm font-medium dark:text-white">
-            {{ customLoaded ? `custom (${overrideName || 'override'})` : 'bundled songs.json' }}
+            <template v-if="customLoaded">
+              custom :
+              <span class="text-purple">
+                {{ overrideName || 'override.json' }}
+              </span>
+            </template>
+
+            <template v-else>
+              default :
+              <a :href="bundledSongsUrl" target="_blank" class="text-purple hover:underline">
+                /songs.json
+              </a>
+            </template>
           </span>
-          <a
-            v-if="!customLoaded"
-            :href="bundledSongsUrl"
-            target="_blank"
-            class="text-purple text-xs hover:underline"
-          >
-            {{ bundledSongsUrl }}
-          </a>
         </div>
 
         <!-- reset -->
