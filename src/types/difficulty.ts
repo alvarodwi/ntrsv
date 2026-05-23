@@ -1,8 +1,3 @@
-export const DifficultyList = [
-  'CASUAL',
-  'NORMAL',
-  'HARD',
-  'EXPERT',
-] as const
+export const DifficultyList = ['CASUAL', 'NORMAL', 'HARD', 'EXPERT'] as const
 
-export type Difficulty = typeof DifficultyList[number]
+export type Difficulty = (typeof DifficultyList)[number]

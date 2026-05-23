@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { useThemeStore } from "@/stores/themes";
-import { onMounted } from "vue";
+import { onMounted } from 'vue'
 
-const theme = useThemeStore();
+import { useThemeStore } from '@/stores/themes'
+
+const theme = useThemeStore()
 
 onMounted(() => {
-  theme.initTheme();
-});
+  theme.initTheme()
+})
 </script>
 
 <template>

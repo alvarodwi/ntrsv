@@ -1,6 +1,6 @@
 <!-- components/FilterSection.vue -->
 <script setup lang="ts">
-defineProps<{ title: string }>();
+defineProps<{ title: string }>()
 </script>
 
 <template>

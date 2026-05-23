@@ -1,24 +1,25 @@
 <script setup lang="ts">
-import FilterPanel from "@/components/randomizer/FilterPanel.vue";
-import ResultPanel from "@/components/randomizer/ResultPanel.vue";
-import { useRandomizerStore } from "@/stores/randomizerStore";
-import { useLaneSync } from "@/composables/useLaneSync";
-import { onMounted } from "vue";
+import { onMounted } from 'vue'
 
-const randomizer = useRandomizerStore();
-const lane = useLaneSync();
+import FilterPanel from '@/components/randomizer/FilterPanel.vue'
+import ResultPanel from '@/components/randomizer/ResultPanel.vue'
+import { useLaneSync } from '@/composables/useLaneSync'
+import { useRandomizerStore } from '@/stores/randomizerStore'
+
+const randomizer = useRandomizerStore()
+const lane = useLaneSync()
 
 onMounted(() => {
-  lane.init();
-});
+  lane.init()
+})
 
 function randomize() {
-  randomizer.randomize();
+  randomizer.randomize()
 
-  const pick = randomizer.selected;
-  if (!pick) return;
-  lane.emitSelection(pick.song.id, pick.difficulty);
-  lane.emitFilterSync();
+  const pick = randomizer.selected
+  if (!pick) return
+  lane.emitSelection(pick.song.id, pick.difficulty)
+  lane.emitFilterSync()
 }
 </script>
 
@@ -27,7 +28,7 @@ function randomize() {
     <!-- action -->
     <div class="flex justify-center">
       <button
-        class="bg-gold dark:bg-gold/60 dark:text-white text-charcoal flex flex-row rounded-full px-8 py-3 text-sm font-semibold tracking-[0.15em] uppercase shadow-lg transition-all duration-150 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-xl active:translate-y-0 active:scale-[0.98] dark:shadow-xl dark:hover:shadow-2xl"
+        class="bg-gold dark:bg-gold/60 text-charcoal flex flex-row rounded-full px-8 py-3 text-sm font-semibold tracking-[0.15em] uppercase shadow-lg transition-all duration-150 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-xl active:translate-y-0 active:scale-[0.98] dark:text-white dark:shadow-xl dark:hover:shadow-2xl"
         @click="randomize"
       >
         <div class="i-ph-sparkle my-auto mr-2 text-lg" />

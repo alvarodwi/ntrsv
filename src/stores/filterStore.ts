@@ -1,5 +1,14 @@
 import { defineStore } from 'pinia'
+
 import type { Difficulty } from '@/types/difficulty'
+
+function toggleSetValue<T>(set: Set<T>, value: T) {
+  if (set.has(value)) {
+    set.delete(value)
+  } else {
+    set.add(value)
+  }
+}
 
 export const useFilterStore = defineStore('filters', {
   state: () => ({
@@ -14,27 +23,19 @@ export const useFilterStore = defineStore('filters', {
 
   actions: {
     toggleDifficulty(d: Difficulty) {
-      this.difficulties.has(d)
-        ? this.difficulties.delete(d)
-        : this.difficulties.add(d)
+      toggleSetValue(this.difficulties, d)
     },
 
     toggleTag(tag: string) {
-      this.tags.has(tag)
-        ? this.tags.delete(tag)
-        : this.tags.add(tag)
+      toggleSetValue(this.tags, tag)
     },
 
     toggleAlbum(album: string) {
-      this.albums.has(album)
-        ? this.albums.delete(album)
-        : this.albums.add(album)
+      toggleSetValue(this.albums, album)
     },
 
     toggleAccess(access: string) {
-      this.access.has(access)
-        ? this.access.delete(access)
-        : this.access.add(access)
+      toggleSetValue(this.access, access)
     },
 
     setMinRating(v: number) {
@@ -54,7 +55,7 @@ export const useFilterStore = defineStore('filters', {
       this.minRating = 1
       this.maxRating = 19
       this.access.clear()
-      this.access.add("free")
+      this.access.add('free')
     },
   },
 })

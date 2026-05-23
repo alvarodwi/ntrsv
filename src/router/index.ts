@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+
 import Home from '@/pages/Home.vue'
 import LaneCover from '@/pages/LaneCover.vue'
 

@@ -1,54 +1,55 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from "vue";
-import { useSongStore } from "@/stores/songStore";
+import { ref, onMounted } from 'vue'
+
 import {
   loadSongs,
   loadSongsFromFile,
   clearCustomSongs,
   hasCustomSongs as hasCustomSongsOverride,
-} from "@/services/songService";
+} from '@/services/songService'
+import { useSongStore } from '@/stores/songStore'
 
-const songs = useSongStore();
-const bundledSongsUrl = import.meta.env.BASE_URL + "songs.json";
+const songs = useSongStore()
+const bundledSongsUrl = import.meta.env.BASE_URL + 'songs.json'
 
-const customLoaded = ref(false);
-const uploadError = ref<string | null>(null);
-const overrideName = ref("");
+const customLoaded = ref(false)
+const uploadError = ref<string | null>(null)
+const overrideName = ref('')
 
 onMounted(async () => {
-  await reloadSongs();
-});
+  await reloadSongs()
+})
 
 async function reloadSongs() {
-  songs.setSongs(await loadSongs());
-  customLoaded.value = hasCustomSongsOverride();
+  songs.setSongs(await loadSongs())
+  customLoaded.value = hasCustomSongsOverride()
 }
 
 async function onSongFileChange(event: Event) {
-  uploadError.value = null;
-  const input = event.target as HTMLInputElement;
-  const file = input.files?.[0];
+  uploadError.value = null
+  const input = event.target as HTMLInputElement
+  const file = input.files?.[0]
 
-  if (!file) return;
-  if (!file.name.toLowerCase().endsWith(".json")) {
-    uploadError.value = "Please upload a JSON file.";
-    return;
+  if (!file) return
+  if (!file.name.toLowerCase().endsWith('.json')) {
+    uploadError.value = 'Please upload a JSON file.'
+    return
   }
 
   try {
-    const loadedSongs = await loadSongsFromFile(file);
-    songs.setSongs(loadedSongs);
-    customLoaded.value = true;
-    overrideName.value = file.name;
+    const loadedSongs = await loadSongsFromFile(file)
+    songs.setSongs(loadedSongs)
+    customLoaded.value = true
+    overrideName.value = file.name
   } catch (error: any) {
-    uploadError.value = error?.message ?? "Invalid song file.";
+    uploadError.value = error?.message ?? 'Invalid song file.'
   }
 }
 
 async function resetToBundled() {
-  clearCustomSongs();
-  await reloadSongs();
-  overrideName.value = "";
+  clearCustomSongs()
+  await reloadSongs()
+  overrideName.value = ''
 }
 </script>
 
@@ -57,13 +58,9 @@ async function resetToBundled() {
     <!-- compact label -->
     <div class="flex items-center justify-between">
       <div>
-        <div class="text-charcoal text-sm font-semibold dark:text-white">
-          Song Import
-        </div>
+        <div class="text-charcoal text-sm font-semibold dark:text-white">Song Import</div>
 
-        <p class="text-charcoal/50 mt-0.5 text-xs dark:text-white/50">
-          Load custom datasets
-        </p>
+        <p class="text-charcoal/50 mt-0.5 text-xs dark:text-white/50">Load custom datasets</p>
       </div>
     </div>
 
@@ -82,9 +79,7 @@ async function resetToBundled() {
         </div>
 
         <div class="flex flex-col gap-1">
-          <div class="text-charcoal text-sm font-semibold dark:text-white">
-            Upload JSON File
-          </div>
+          <div class="text-charcoal text-sm font-semibold dark:text-white">Upload JSON File</div>
 
           <p class="text-charcoal/50 text-xs dark:text-white/50">
             Select a valid songs.json dataset
@@ -94,8 +89,8 @@ async function resetToBundled() {
         <input
           type="file"
           accept=".json,application/json"
-          @change="onSongFileChange"
           class="hidden"
+          @change="onSongFileChange"
         />
       </label>
 
@@ -103,16 +98,10 @@ async function resetToBundled() {
       <div class="flex items-center justify-between gap-3">
         <!-- source -->
         <div class="flex flex-col gap-0.5">
-          <span class="text-charcoal/50 text-xs dark:text-white/50">
-            Source
-          </span>
+          <span class="text-charcoal/50 text-xs dark:text-white/50"> Source </span>
 
           <span class="text-charcoal text-sm font-medium dark:text-white">
-            {{
-              customLoaded
-                ? `custom (${overrideName || "override"})`
-                : "bundled songs.json"
-            }}
+            {{ customLoaded ? `custom (${overrideName || 'override'})` : 'bundled songs.json' }}
           </span>
           <a
             v-if="!customLoaded"
@@ -128,8 +117,8 @@ async function resetToBundled() {
         <button
           type="button"
           class="border-charcoal/10 text-charcoal hover:border-purple/20 hover:bg-purple/10 dark:hover:border-purple/20 dark:hover:bg-purple/10 rounded-full border bg-white/50 px-4 py-2 text-xs font-medium tracking-wide uppercase transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-40 dark:border-white/10 dark:text-white"
-          @click="resetToBundled"
           :disabled="!customLoaded"
+          @click="resetToBundled"
         >
           Reset
         </button>

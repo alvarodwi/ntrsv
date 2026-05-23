@@ -1,106 +1,106 @@
 import { ref } from 'vue'
+
 import { laneChannel } from '@/services/channel'
+import { useFilterStore } from '@/stores/filterStore'
 import { useSongStore } from '@/stores/songStore'
-import type { SongPick } from '@/types/songPick'
 import type { Difficulty } from '@/types/difficulty'
 import type { FilterSnapshot } from '@/types/filterSnapshot'
-import { useFilterStore } from '@/stores/filterStore'
+import type { SongPick } from '@/types/songPick'
 
 const selected = ref<SongPick | null>(null)
 
 function serializeFilter(filter: ReturnType<typeof useFilterStore>): FilterSnapshot {
-    return {
-        difficulties: [...filter.difficulties],
-        tags: [...filter.tags],
-        albums: [...filter.albums],
-        minRating: filter.minRating,
-        maxRating: filter.maxRating,
-    }
+  return {
+    difficulties: [...filter.difficulties],
+    tags: [...filter.tags],
+    albums: [...filter.albums],
+    minRating: filter.minRating,
+    maxRating: filter.maxRating,
+  }
 }
 
 export function useLaneSync() {
-    const songStore = useSongStore()
-    const filterStore = useFilterStore()
+  const songStore = useSongStore()
+  const filterStore = useFilterStore()
 
-    function apply(songId: string, difficulty: Difficulty) {
-        const song = songStore.byId(songId)
-        if (!song) return
+  function apply(songId: string, difficulty: Difficulty) {
+    const song = songStore.byId(songId)
+    if (!song) return
 
-        selected.value = { song, difficulty }
+    selected.value = { song, difficulty }
+  }
+
+  function init() {
+    laneChannel.onmessage = (event) => {
+      const { type, payload } = event.data
+
+      switch (type) {
+        case 'RESULT':
+        case 'SYNC_RESULT':
+          apply(payload.songId, payload.difficulty)
+          break
+
+        case 'REQUEST_STATE':
+          syncState()
+          break
+
+        case 'SYNC_FILTER':
+          applyFilter(payload)
+          break
+      }
+    }
+  }
+
+  function syncState() {
+    if (selected.value) {
+      laneChannel.postMessage({
+        type: 'SYNC_RESULT',
+        payload: {
+          songId: selected.value.song.id,
+          difficulty: selected.value.difficulty,
+        },
+      })
     }
 
-    function init() {
-        laneChannel.onmessage = (event) => {
-            const { type, payload } = event.data
+    laneChannel.postMessage({
+      type: 'SYNC_FILTER',
+      payload: serializeFilter(filterStore),
+    })
+  }
 
-            switch (type) {
-                case 'RESULT':
-                case 'SYNC_RESULT':
-                    apply(payload.songId, payload.difficulty)
-                    break
+  function emitSelection(songId: string, difficulty: Difficulty) {
+    const payload = { songId, difficulty }
 
-                case 'REQUEST_STATE':
-                    syncState()
-                    break
-
-                case 'SYNC_FILTER':
-                    applyFilter(payload)
-                    break
-            }
-        }
+    selected.value = {
+      song: songStore.byId(songId)!,
+      difficulty,
     }
 
-    function syncState() {
-        if (selected.value) {
-            laneChannel.postMessage({
-                type: 'SYNC_RESULT',
-                payload: {
-                    songId: selected.value.song.id,
-                    difficulty: selected.value.difficulty,
-                },
-            })
-        }
+    laneChannel.postMessage({
+      type: 'RESULT',
+      payload,
+    })
+  }
 
-        laneChannel.postMessage({
-            type: 'SYNC_FILTER',
-            payload: serializeFilter(filterStore),
-        })
-    }
+  function emitFilterSync() {
+    laneChannel.postMessage({
+      type: 'SYNC_FILTER',
+      payload: serializeFilter(filterStore),
+    })
+  }
 
-    function emitSelection(songId: string, difficulty: Difficulty) {
-        const payload = { songId, difficulty }
+  function applyFilter(payload: FilterSnapshot) {
+    filterStore.difficulties = new Set(payload.difficulties)
+    filterStore.tags = new Set(payload.tags)
+    filterStore.albums = new Set(payload.albums)
+    filterStore.minRating = payload.minRating
+    filterStore.maxRating = payload.maxRating
+  }
 
-        selected.value = {
-            song: songStore.byId(songId)!,
-            difficulty,
-        }
-
-        laneChannel.postMessage({
-            type: 'RESULT',
-            payload,
-        })
-    }
-
-    function emitFilterSync() {
-        laneChannel.postMessage({
-            type: 'SYNC_FILTER',
-            payload: serializeFilter(filterStore),
-        })
-    }
-
-
-    function applyFilter(payload: FilterSnapshot) {
-        filterStore.difficulties = new Set(payload.difficulties)
-        filterStore.tags = new Set(payload.tags)
-        filterStore.albums = new Set(payload.albums)
-        filterStore.minRating = payload.minRating
-        filterStore.maxRating = payload.maxRating
-    }
-
-    return {
-        selected,
-        init,
-        emitSelection,
-        emitFilterSync
-    }
+  return {
+    selected,
+    init,
+    emitSelection,
+    emitFilterSync,
+  }
 }

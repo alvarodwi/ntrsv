@@ -1,34 +1,35 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
-import { useSongStore } from "@/stores/songStore";
-import type { Song } from "@/types/song";
+import { computed, onMounted, ref } from 'vue'
 
-const songs = useSongStore();
+import { useSongStore } from '@/stores/songStore'
+import type { Song } from '@/types/song'
+
+const songs = useSongStore()
 
 function getRandomSample<T>(arr: T[], size: number): T[] {
-  const copy = [...arr];
-  const result: T[] = [];
+  const copy = [...arr]
+  const result: T[] = []
 
   while (copy.length && result.length < size) {
-    const index = Math.floor(Math.random() * copy.length);
-    result.push(copy.splice(index, 1)[0]);
+    const index = Math.floor(Math.random() * copy.length)
+    result.push(copy.splice(index, 1)[0])
   }
 
-  return result;
+  return result
 }
 
-const previewSongs = ref<Song[]>([]);
-const previewSize = 3;
+const previewSongs = ref<Song[]>([])
+const previewSize = 3
 
 function shufflePreview() {
-  previewSongs.value = getRandomSample(songs.songs, previewSize);
+  previewSongs.value = getRandomSample(songs.songs, previewSize)
 }
 
 onMounted(() => {
-  shufflePreview();
-});
+  shufflePreview()
+})
 
-const currentSongCount = computed(() => songs.songs.length);
+const currentSongCount = computed(() => songs.songs.length)
 </script>
 
 <template>
@@ -36,9 +37,7 @@ const currentSongCount = computed(() => songs.songs.length);
     <!-- top bar -->
     <div class="flex items-center justify-between gap-3">
       <div>
-        <div class="text-charcoal text-sm font-semibold dark:text-white">
-          Library Preview
-        </div>
+        <div class="text-charcoal text-sm font-semibold dark:text-white">Library Preview</div>
 
         <p class="text-charcoal/50 mt-0.5 text-xs dark:text-white/50">
           Random sample from current dataset
@@ -46,8 +45,8 @@ const currentSongCount = computed(() => songs.songs.length);
       </div>
 
       <button
-        @click="shufflePreview"
         class="border-charcoal/10 text-charcoal hover:border-purple/20 hover:bg-purple/10 dark:bg-charcoal/50 flex flex-row rounded-full border bg-white/50 px-4 py-2 text-xs font-medium tracking-wide uppercase transition-all duration-150 dark:border-white/10 dark:text-white"
+        @click="shufflePreview"
       >
         <div class="i-ph-shuffle-angular my-auto mr-2" />
         Shuffle
@@ -65,16 +64,12 @@ const currentSongCount = computed(() => songs.songs.length);
       <div class="flex items-start justify-between gap-2">
         <!-- title -->
         <div class="min-w-0 flex-1">
-          <div
-            class="text-charcoal max-w-75% truncate text-sm font-semibold dark:text-white"
-          >
+          <div class="text-charcoal max-w-75% truncate text-sm font-semibold dark:text-white">
             {{ song.title }}
           </div>
 
-          <div
-            class="text-charcoal/55 mt-1 truncate text-xs dark:text-white/55"
-          >
-            {{ song.artists.join(", ") }}
+          <div class="text-charcoal/55 mt-1 truncate text-xs dark:text-white/55">
+            {{ song.artists.join(', ') }}
           </div>
         </div>
 
@@ -107,10 +102,7 @@ const currentSongCount = computed(() => songs.songs.length);
     <div
       class="bg-charcoal/[0.03] text-charcoal/60 flex items-center justify-between rounded-full px-4 py-2 text-xs dark:bg-white/[0.03] dark:text-white/60"
     >
-      <span
-        >Sample size: {{ previewSize }} out of
-        {{ currentSongCount }} songs</span
-      >
+      <span>Sample size: {{ previewSize }} out of {{ currentSongCount }} songs</span>
     </div>
   </section>
 </template>

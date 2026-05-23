@@ -1,42 +1,43 @@
 <script setup lang="ts">
-import { useLaneSync } from "@/composables/useLaneSync";
-import { motion } from "motion-v";
+import { motion } from 'motion-v'
 
-const lane = useLaneSync();
+import { useLaneSync } from '@/composables/useLaneSync'
+
+const lane = useLaneSync()
 
 const selectedDifficultyGlow = (diff: string) => {
   switch (diff.toLowerCase()) {
-    case "casual":
-      return "bg-[#9eac53]/10";
-    case "normal":
-      return "bg-[#c78a03]/10";
-    case "hard":
-      return "bg-[#f03055]/10";
-    case "expert":
-      return "bg-[#cc7dfa]/10";
+    case 'casual':
+      return 'bg-[#9eac53]/10'
+    case 'normal':
+      return 'bg-[#c78a03]/10'
+    case 'hard':
+      return 'bg-[#f03055]/10'
+    case 'expert':
+      return 'bg-[#cc7dfa]/10'
     default:
-      return "bg-gold/10";
+      return 'bg-gold/10'
   }
-};
+}
 
 const selectedDifficultyText = (diff: string) => {
   switch (diff.toLowerCase()) {
-    case "casual":
-      return "text-[#9eac53]";
+    case 'casual':
+      return 'text-[#9eac53]'
 
-    case "normal":
-      return "text-[#c78a03]";
+    case 'normal':
+      return 'text-[#c78a03]'
 
-    case "hard":
-      return "text-[#f03055]";
+    case 'hard':
+      return 'text-[#f03055]'
 
-    case "expert":
-      return "text-[#cc7dfa]";
+    case 'expert':
+      return 'text-[#cc7dfa]'
 
     default:
-      return "text-gold";
+      return 'text-gold'
   }
-};
+}
 </script>
 
 <template>
@@ -60,16 +61,11 @@ const selectedDifficultyText = (diff: string) => {
         Ready to Randomize
       </div>
 
-      <p class="text-charcoal/55 text-sm dark:text-white/55">
-        Press randomize to generate a chart
-      </p>
+      <p class="text-charcoal/55 text-sm dark:text-white/55">Press randomize to generate a chart</p>
     </motion.div>
 
     <!-- RESULT STATE -->
-    <div
-      v-else
-      class="flex w-full max-w-xl flex-col items-center gap-8 text-center"
-    >
+    <div v-else class="flex w-full max-w-xl flex-col items-center gap-8 text-center">
       <!-- song info -->
       <div class="flex flex-col gap-2">
         <div
@@ -87,21 +83,19 @@ const selectedDifficultyText = (diff: string) => {
             duration: 0.4,
             ease: 'easeOut',
           }"
-          class="text-charcoal md:my-2 text-2xl leading-tight font-black font-bold sm:text-3xl md:text-4xl dark:text-white"
+          class="text-charcoal text-2xl leading-tight font-black font-bold sm:text-3xl md:my-2 md:text-4xl dark:text-white"
         >
           {{ lane.selected.value?.song.title }}
         </motion.h1>
 
         <div class="flex flex-col items-center gap-2 text-center">
           <!-- mobile -->
-          <div class="text-charcoal/60 dark:text-white/60 max-w-full truncate text-sm md:hidden">
-            {{ lane.selected.value?.song.artists.join(", ") }}
+          <div class="text-charcoal/60 max-w-full truncate text-sm md:hidden dark:text-white/60">
+            {{ lane.selected.value?.song.artists.join(', ') }}
           </div>
 
           <!-- desktop -->
-          <div
-            class="hidden flex-wrap items-center justify-center gap-2 md:flex"
-          >
+          <div class="hidden flex-wrap items-center justify-center gap-2 md:flex">
             <!-- artists -->
             <div class="flex flex-wrap justify-center gap-1.5">
               <div

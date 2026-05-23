@@ -1,12 +1,6 @@
 // uno.config.ts
-import {
-  defineConfig,
-  presetWind3,
-  presetIcons,
-  presetAttributify,
-  presetWebFonts
-} from 'unocss'
 import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
+import { defineConfig, presetWind3, presetIcons, presetAttributify, presetWebFonts } from 'unocss'
 
 export default defineConfig({
   dark: 'class',
@@ -27,7 +21,7 @@ export default defineConfig({
         cacheDir: 'node_modules/.cache/unocss/fonts',
         fontAssetsDir: 'public/assets/fonts',
         fontServeBaseUrl: '/assets/fonts',
-      })
+      }),
     }),
   ],
   theme: {

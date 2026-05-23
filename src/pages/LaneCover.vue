@@ -1,113 +1,112 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { laneChannel } from "@/services/channel";
-import { useSongStore } from "@/stores/songStore";
-import { useRandomizerStore } from "@/stores/randomizerStore";
-import { loadSongs } from "@/services/songService";
-import { useLaneSync } from "@/composables/useLaneSync";
-import { AnimatePresence, motion } from "motion-v";
+import { AnimatePresence, motion } from 'motion-v'
+import { onMounted } from 'vue'
 
-const songs = useSongStore();
-const randomizer = useRandomizerStore();
+import { useLaneSync } from '@/composables/useLaneSync'
+import { laneChannel } from '@/services/channel'
+import { loadSongs } from '@/services/songService'
+import { useRandomizerStore } from '@/stores/randomizerStore'
+import { useSongStore } from '@/stores/songStore'
 
-const lane = useLaneSync();
+const songs = useSongStore()
+const randomizer = useRandomizerStore()
+
+const lane = useLaneSync()
 
 onMounted(async () => {
-  songs.setSongs(await loadSongs());
-  lane.init();
+  songs.setSongs(await loadSongs())
+  lane.init()
 
-  laneChannel.postMessage({ type: "REQUEST_STATE" });
-});
+  laneChannel.postMessage({ type: 'REQUEST_STATE' })
+})
 
 function randomize() {
-  randomizer.randomize();
+  randomizer.randomize()
 
-  const pick = randomizer.selected;
-  if (!pick) return;
-  lane.emitSelection(pick.song.id, pick.difficulty);
+  const pick = randomizer.selected
+  if (!pick) return
+  lane.emitSelection(pick.song.id, pick.difficulty)
 }
 
 const selectedDifficultyText = (diff: string) => {
   switch (diff.toLowerCase()) {
-    case "casual":
-      return "text-[#9eac53]";
+    case 'casual':
+      return 'text-[#9eac53]'
 
-    case "normal":
-      return "text-[#c78a03]";
+    case 'normal':
+      return 'text-[#c78a03]'
 
-    case "hard":
-      return "text-[#f03055]";
+    case 'hard':
+      return 'text-[#f03055]'
 
-    case "expert":
-      return "text-[#cc7dfa]";
+    case 'expert':
+      return 'text-[#cc7dfa]'
 
     default:
-      return "text-white";
+      return 'text-white'
   }
-};
+}
 
 const selectedDifficultyCard = (diff: string) => {
   switch (diff.toLowerCase()) {
-    case "casual":
-      return "border-[#9eac53]/30 bg-[#9eac53]/15 text-[#9eac53]";
+    case 'casual':
+      return 'border-[#9eac53]/30 bg-[#9eac53]/15 text-[#9eac53]'
 
-    case "normal":
-      return "border-[#c78a03]/30 bg-[#c78a03]/15 text-[#c78a03]";
+    case 'normal':
+      return 'border-[#c78a03]/30 bg-[#c78a03]/15 text-[#c78a03]'
 
-    case "hard":
-      return "border-[#f03055]/30 bg-[#f03055]/15 text-[#f03055]";
+    case 'hard':
+      return 'border-[#f03055]/30 bg-[#f03055]/15 text-[#f03055]'
 
-    case "expert":
-      return "border-[#cc7dfa]/30 bg-[#cc7dfa]/15 text-[#cc7dfa]";
+    case 'expert':
+      return 'border-[#cc7dfa]/30 bg-[#cc7dfa]/15 text-[#cc7dfa]'
 
     default:
-      return "border-white/10 bg-white/5 text-white";
+      return 'border-white/10 bg-white/5 text-white'
   }
-};
+}
 
 const selectedDifficultyButton = (diff: string) => {
   switch (diff.toLowerCase()) {
-    case "casual":
-      return "bg-[#9eac53] text-black hover:brightness-110";
+    case 'casual':
+      return 'bg-[#9eac53] text-black hover:brightness-110'
 
-    case "normal":
-      return "bg-[#c78a03] text-black hover:brightness-110";
+    case 'normal':
+      return 'bg-[#c78a03] text-black hover:brightness-110'
 
-    case "hard":
-      return "bg-[#f03055] text-black hover:brightness-110";
+    case 'hard':
+      return 'bg-[#f03055] text-black hover:brightness-110'
 
-    case "expert":
-      return "bg-[#cc7dfa] text-black hover:brightness-110";
+    case 'expert':
+      return 'bg-[#cc7dfa] text-black hover:brightness-110'
 
     default:
-      return "bg-white text-black";
+      return 'bg-white text-black'
   }
-};
+}
 
 const difficultyGlowClass = (diff: string) => {
   switch (diff.toLowerCase()) {
-    case "casual":
-      return "bg-[#9eac53]";
+    case 'casual':
+      return 'bg-[#9eac53]'
 
-    case "normal":
-      return "bg-[#c78a03]";
+    case 'normal':
+      return 'bg-[#c78a03]'
 
-    case "hard":
-      return "bg-[#f03055]";
+    case 'hard':
+      return 'bg-[#f03055]'
 
-    case "expert":
-      return "bg-[#cc7dfa]";
+    case 'expert':
+      return 'bg-[#cc7dfa]'
 
     default:
-      return "bg-white";
+      return 'bg-white'
   }
-};
+}
 </script>
 
 <template>
-  <div
-    class="relative flex h-screen flex-col overflow-hidden bg-[#0d0d0f] text-white"
-  >
+  <div class="relative flex h-screen flex-col overflow-hidden bg-[#0d0d0f] text-white">
     <!-- glow -->
     <AnimatePresence mode="wait">
       <motion.div
@@ -142,9 +141,7 @@ const difficultyGlowClass = (diff: string) => {
         <div class="i-ph-waveform text-5xl text-white/10" />
 
         <!-- title -->
-        <div class="text-[0.7rem] tracking-[0.28em] text-white/35 uppercase">
-          Standing By
-        </div>
+        <div class="text-[0.7rem] tracking-[0.28em] text-white/35 uppercase">Standing By</div>
 
         <!-- hint -->
         <p class="text-sm text-white/25">Randomize from the main window</p>
@@ -197,7 +194,7 @@ const difficultyGlowClass = (diff: string) => {
 
             <!-- artists -->
             <div class="mt-1 truncate text-xs text-white/55">
-              {{ lane.selected.value.song.artists.join(", ") }}
+              {{ lane.selected.value.song.artists.join(', ') }}
             </div>
           </div>
         </div>

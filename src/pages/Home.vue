@@ -1,34 +1,33 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import RandomizerTab from "@/components/randomizer/RandomizerTab.vue";
-import ConfigTab from "@/components/config/ConfigTab.vue";
-import { motion } from "motion-v";
-import { useThemeStore } from "@/stores/themes";
+import { motion } from 'motion-v'
+import { ref } from 'vue'
 
-const activeTab = ref<"randomizer" | "config">("randomizer");
+import ConfigTab from '@/components/config/ConfigTab.vue'
+import RandomizerTab from '@/components/randomizer/RandomizerTab.vue'
+import { useThemeStore } from '@/stores/themes'
+
+const activeTab = ref<'randomizer' | 'config'>('randomizer')
 
 function openLaneCover() {
-  const width = 640;
-  const height = 160;
+  const width = 640
+  const height = 160
 
-  const left = window.screenX + (window.outerWidth - width) / 2;
-  const top = window.screenY + 84;
+  const left = window.screenX + (window.outerWidth - width) / 2
+  const top = window.screenY + 84
 
   window.open(
-    import.meta.env.BASE_URL + "#/lane",
-    "lane-cover",
+    import.meta.env.BASE_URL + '#/lane',
+    'lane-cover',
     `width=${width},height=${height},left=${left},top=${top}`,
-  );
+  )
 }
 
-const version = __APP_VERSION__;
-const theme = useThemeStore();
+const version = __APP_VERSION__
+const theme = useThemeStore()
 </script>
 
 <template>
-  <div
-    class="bg-cream dark:bg-charcoal relative flex min-h-dvh flex-col overflow-hidden"
-  >
+  <div class="bg-cream dark:bg-charcoal relative flex min-h-dvh flex-col overflow-hidden">
     <!-- background -->
     <motion.div
       :animate="{
@@ -104,15 +103,9 @@ const theme = useThemeStore();
       <div
         class="border-charcoal/5 dark:bg-charcoal/55 flex w-full flex-col items-center border-b bg-white/30 py-4 backdrop-blur-md md:hidden dark:border-white/8"
       >
-        <h1
-          class="text-charcoal text-xl font-bold tracking-[0.2em] dark:text-white"
-        >
-          ntrsv
-        </h1>
+        <h1 class="text-charcoal text-xl font-bold tracking-[0.2em] dark:text-white">ntrsv</h1>
 
-        <p
-          class="text-charcoal/60 mt-1 text-center text-sm leading-relaxed dark:text-white/55"
-        >
+        <p class="text-charcoal/60 mt-1 text-center text-sm leading-relaxed dark:text-white/55">
           [n]ikke [t]racing the stars <br />
           [r]andom [s]elector
           <span class="text-purple">[v]</span>
@@ -120,9 +113,7 @@ const theme = useThemeStore();
       </div>
     </header>
     <!-- main content -->
-    <main
-      class="font-ui relative z-10 flex flex-1 items-center justify-center px-6 py-6 md:py-24"
-    >
+    <main class="font-ui relative z-10 flex flex-1 items-center justify-center px-6 py-6 md:py-24">
       <div
         class="border-charcoal/8 dark:bg-charcoal/55 w-full max-w-6xl rounded-[28px] border bg-white/55 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_8px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl md:p-8 dark:border-white/8 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_8px_30px_rgba(0,0,0,0.35)]"
       >
@@ -135,11 +126,7 @@ const theme = useThemeStore();
       <div
         class="text-charcoal/35 flex flex-wrap items-center justify-center gap-2 pb-6 text-center text-xs dark:text-white/35"
       >
-        <span
-          >[n]ikke [t]racing the stars [r]andom [s]elector [v{{
-            version
-          }}]</span
-        >
+        <span>[n]ikke [t]racing the stars [r]andom [s]elector [v{{ version }}]</span>
       </div>
     </footer>
   </div>
