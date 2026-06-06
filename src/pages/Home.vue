@@ -122,7 +122,7 @@ const theme = useThemeStore()
       </div>
     </main>
     <!-- footer -->
-    <footer class="relative z-10">
+    <footer class="font-display relative z-10">
       <div
         class="text-charcoal/35 flex flex-wrap items-center justify-center gap-2 pb-6 text-center text-xs dark:text-white/35"
       >
