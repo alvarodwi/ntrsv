@@ -75,7 +75,7 @@ const selectedDifficultyText = (diff: string) => {
           Selected Track
         </div>
 
-        <motion.h1
+        <motion.h2
           :key="lane.selected.value.song.id"
           :initial="{ opacity: 0, y: 2 }"
           :animate="{ opacity: 1, y: 0 }"
@@ -86,7 +86,7 @@ const selectedDifficultyText = (diff: string) => {
           class="text-charcoal text-2xl leading-tight font-black font-bold sm:text-3xl md:my-2 md:text-4xl dark:text-white"
         >
           {{ lane.selected.value?.song.title }}
-        </motion.h1>
+        </motion.h2>
 
         <div class="flex flex-col items-center gap-2 text-center">
           <!-- mobile -->

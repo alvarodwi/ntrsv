@@ -58,8 +58,7 @@ async function resetToBundled() {
     <!-- compact label -->
     <div class="flex items-center justify-between">
       <div>
-        <div class="text-charcoal text-sm font-semibold dark:text-white">Song Import</div>
-
+        <h3 class="text-charcoal text-sm font-semibold dark:text-white">Song Import</h3>
         <p class="text-charcoal/50 mt-0.5 text-xs dark:text-white/50">Load custom datasets</p>
       </div>
     </div>

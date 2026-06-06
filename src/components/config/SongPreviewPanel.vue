@@ -37,8 +37,7 @@ const currentSongCount = computed(() => songs.songs.length)
     <!-- top bar -->
     <div class="flex items-center justify-between gap-3">
       <div>
-        <div class="text-charcoal text-sm font-semibold dark:text-white">Library Preview</div>
-
+        <h3 class="text-charcoal text-sm font-semibold dark:text-white">Library Preview</h3>
         <p class="text-charcoal/50 mt-0.5 text-xs dark:text-white/50">
           Random sample from current dataset
         </p>

@@ -28,7 +28,6 @@ const theme = useThemeStore()
 
 <template>
   <div class="bg-cream dark:bg-charcoal relative flex min-h-dvh flex-col overflow-hidden">
-    <!-- background -->
     <motion.div
       :animate="{
         x: [0, 18, -10, 0],
@@ -49,17 +48,15 @@ const theme = useThemeStore()
       @click="theme.toggleTheme()"
     >
       <div v-if="theme.theme === 'light'" class="i-ph-sun text-lg" />
-
       <div v-else class="i-ph-moon text-lg" />
     </button>
 
-    <!-- header -->
     <header class="font-display relative z-20">
-      <!-- desktop -->
       <div
         class="absolute top-4 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-4 md:flex"
       >
-        <!-- lane cover -->
+        <h1 class="sr-only">NIKKE Tracing the Stars Random Selector (NTRSV)</h1>
+
         <button
           class="border-purple/20 bg-purple/10 text-charcoal hover:bg-purple/20 hover:border-purple/40 rounded-full border px-5 py-2 text-sm font-semibold tracking-wide uppercase backdrop-blur-md transition-all duration-150 hover:-translate-y-0.5 dark:text-white/75"
           @click="openLaneCover"
@@ -67,11 +64,9 @@ const theme = useThemeStore()
           Use Lane Cover
         </button>
 
-        <!-- nav -->
         <div
           class="border-charcoal/5 dark:bg-charcoal/60 flex items-center gap-2 rounded-full border bg-white/70 p-1 shadow-sm backdrop-blur-md dark:border-white/8 dark:shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
         >
-          <!-- randomizer -->
           <button
             class="rounded-full px-5 py-2 text-sm tracking-wide uppercase transition-all duration-150"
             :class="
@@ -84,7 +79,6 @@ const theme = useThemeStore()
             Randomizer
           </button>
 
-          <!-- config -->
           <button
             class="rounded-full px-5 py-2 text-sm tracking-wide uppercase transition-all duration-150"
             :class="
@@ -99,34 +93,32 @@ const theme = useThemeStore()
         </div>
       </div>
 
-      <!-- mobile -->
       <div
         class="border-charcoal/5 dark:bg-charcoal/55 flex w-full flex-col items-center border-b bg-white/30 py-4 backdrop-blur-md md:hidden dark:border-white/8"
       >
-        <h1 class="text-charcoal text-xl font-bold tracking-[0.2em] dark:text-white">ntrsv</h1>
+        <h1 class="text-charcoal text-xl font-bold tracking-[0.2em] uppercase dark:text-white">
+          NTRSV
+        </h1>
 
         <p class="text-charcoal/60 mt-1 text-center text-sm leading-relaxed dark:text-white/55">
-          [n]ikke [t]racing the stars <br />
-          [r]andom [s]elector
-          <span class="text-purple">[v]</span>
+          Nikke Tracing the Stars <br />
+          Random Selector <span class="text-purple">v1.2.0</span>
         </p>
       </div>
     </header>
-    <!-- main content -->
     <main class="font-ui relative z-10 flex flex-1 items-center justify-center px-6 py-6 md:py-24">
       <div
         class="border-charcoal/8 dark:bg-charcoal/55 w-full max-w-6xl rounded-[28px] border bg-white/55 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_8px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl md:p-8 dark:border-white/8 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_8px_30px_rgba(0,0,0,0.35)]"
       >
         <RandomizerTab v-if="activeTab === 'randomizer'" />
-        <ConfigTab v-else class="hidden md:block" />
+        <ConfigTab v-else />
       </div>
     </main>
-    <!-- footer -->
     <footer class="font-display relative z-10">
       <div
         class="text-charcoal/35 flex flex-wrap items-center justify-center gap-2 pb-6 text-center text-xs dark:text-white/35"
       >
-        <span>[n]ikke [t]racing the stars [r]andom [s]elector [v{{ version }}]</span>
+        <span>Nikke Tracing the Stars Random Selector v{{ version }}</span>
       </div>
     </footer>
   </div>
