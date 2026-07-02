@@ -130,7 +130,7 @@ const selectedDifficultyText = (diff: string) => {
       <!-- difficulty -->
       <div class="grid w-full grid-cols-2 gap-3 sm:grid-cols-4">
         <div
-          v-for="(rating, diff) in lane.selected.value?.song.maps"
+          v-for="(rating, diff) in lane.selected.value?.song.charts"
           :key="diff"
           class="border-charcoal/5 dark:bg-charcoal/45 relative flex flex-col items-center gap-2 rounded-2xl border bg-white/65 p-4 dark:border-white/5"
           :class="diff === lane.selected.value?.difficulty ? 'z-10' : ''"

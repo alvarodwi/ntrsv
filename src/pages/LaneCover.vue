@@ -166,7 +166,7 @@ const difficultyGlowClass = (diff: string) => {
             class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border text-2xl font-black"
             :class="selectedDifficultyCard(lane.selected.value.difficulty)"
           >
-            {{ lane.selected.value.song.maps[lane.selected.value.difficulty] }}
+            {{ lane.selected.value.song.charts[lane.selected.value.difficulty] }}
           </div>
 
           <!-- info -->
