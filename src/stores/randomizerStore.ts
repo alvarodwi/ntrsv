@@ -30,7 +30,7 @@ export const useRandomizerStore = defineStore('randomizer', {
 
         if (!tagPass) return []
 
-        return Object.entries(song.maps)
+        return Object.entries(song.charts)
           .map(([diff, rating]) => ({
             diff: diff as Difficulty,
             rating: rating as number,

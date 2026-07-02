@@ -88,7 +88,7 @@ const currentSongCount = computed(() => songs.songs.length)
       <!-- difficulties -->
       <div class="mt-3 flex flex-wrap gap-1.5">
         <div
-          v-for="(rating, diff) in song.maps"
+          v-for="(rating, diff) in song.charts"
           :key="diff"
           class="bg-charcoal/[0.04] text-charcoal/70 rounded-full px-2 py-1 text-[0.65rem] font-medium dark:bg-white/[0.04] dark:text-white/70"
         >
