@@ -1211,5 +1211,219 @@
     "tags": [
       "Battle"
     ]
+  },
+  {
+    "title": "EEEEEEEEE-ntertainment",
+    "artists": [
+      "Cosmograph"
+    ],
+    "album": {
+      "name": "TRACING THE STARS",
+      "code": "TTS"
+    },
+    "access": "free",
+    "charts": {
+      "CASUAL": 2,
+      "NORMAL": 6,
+      "HARD": 10,
+      "EXPERT": 14
+    },
+    "sortNumber": 56,
+    "tags": [
+      "Story"
+    ]
+  },
+  {
+    "title": "Lucky Night",
+    "artists": [
+      "Cosmograph",
+      "Shabel Tonya"
+    ],
+    "album": {
+      "name": "T.T.S TETRA ENTERTAINMENT PACK V.1",
+      "code": "TTS_TE_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 3,
+      "NORMAL": 7,
+      "HARD": 12,
+      "EXPERT": 16
+    },
+    "sortNumber": 57,
+    "tags": [
+      "Event",
+      "Vocal"
+    ]
+  },
+  {
+    "title": "SHOW DOWN",
+    "artists": [
+      "Cosmograph",
+      "Shabel Tonya"
+    ],
+    "album": {
+      "name": "T.T.S TETRA ENTERTAINMENT PACK V.1",
+      "code": "TTS_TE_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 3,
+      "NORMAL": 9,
+      "HARD": 13,
+      "EXPERT": 17
+    },
+    "sortNumber": 58,
+    "tags": [
+      "Event",
+      "Vocal"
+    ]
+  },
+  {
+    "title": "Running, SODA!",
+    "artists": [
+      "kagi"
+    ],
+    "album": {
+      "name": "T.T.S TETRA ENTERTAINMENT PACK V.1",
+      "code": "TTS_TE_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 2,
+      "NORMAL": 6,
+      "HARD": 11,
+      "EXPERT": 16
+    },
+    "sortNumber": 59,
+    "tags": [
+      "Event"
+    ]
+  },
+  {
+    "title": "Catch coin, SODA!",
+    "artists": [
+      "kagi"
+    ],
+    "album": {
+      "name": "T.T.S TETRA ENTERTAINMENT PACK V.1",
+      "code": "TTS_TE_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 4,
+      "NORMAL": 8,
+      "HARD": 13,
+      "EXPERT": 17
+    },
+    "sortNumber": 60,
+    "tags": [
+      "Event"
+    ]
+  },
+  {
+    "title": "Mission Possible",
+    "artists": [
+      "cynax"
+    ],
+    "album": {
+      "name": "T.T.S TETRA ENTERTAINMENT PACK V.1",
+      "code": "TTS_TE_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 3,
+      "NORMAL": 7,
+      "HARD": 12,
+      "EXPERT": 16
+    },
+    "sortNumber": 61,
+    "tags": [
+      "Event"
+    ]
+  },
+  {
+    "title": "Manners Maketh Maid",
+    "artists": [
+      "cynax"
+    ],
+    "album": {
+      "name": "T.T.S TETRA ENTERTAINMENT PACK V.1",
+      "code": "TTS_TE_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 3,
+      "NORMAL": 8,
+      "HARD": 13,
+      "EXPERT": 18
+    },
+    "sortNumber": 62,
+    "tags": [
+      "Event"
+    ]
+  },
+  {
+    "title": "MEKAMI SHIFTY",
+    "artists": [
+      "Nauts"
+    ],
+    "album": {
+      "name": "T.T.S TETRA ENTERTAINMENT PACK V.1",
+      "code": "TTS_TE_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 3,
+      "NORMAL": 7,
+      "HARD": 12,
+      "EXPERT": 17
+    },
+    "sortNumber": 63,
+    "tags": [
+      "Event"
+    ]
+  },
+  {
+    "title": "FIGHT! ARK RANGER!",
+    "artists": [
+      "steelplus"
+    ],
+    "album": {
+      "name": "T.T.S TETRA ENTERTAINMENT PACK V.1",
+      "code": "TTS_TE_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 4,
+      "NORMAL": 7,
+      "HARD": 11,
+      "EXPERT": 16
+    },
+    "sortNumber": 64,
+    "tags": [
+      "Event"
+    ]
+  },
+  {
+    "title": "A.C.P.U.! FREEZE!",
+    "artists": [
+      "Cosmograph"
+    ],
+    "album": {
+      "name": "T.T.S TETRA ENTERTAINMENT PACK V.1",
+      "code": "TTS_TE_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 2,
+      "NORMAL": 6,
+      "HARD": 11,
+      "EXPERT": 15
+    },
+    "sortNumber": 65,
+    "tags": [
+      "Event"
+    ]
   }
 ]
