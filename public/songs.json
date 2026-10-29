@@ -1425,5 +1425,472 @@
     "tags": [
       "Event"
     ]
+  },
+  {
+    "title": "Providence (NIKKE Remix)",
+    "artists": [
+      "Cosmograph"
+    ],
+    "album": {
+      "name": "TRACING THE STARS",
+      "code": "TTS"
+    },
+    "access": "free",
+    "charts": {
+      "CASUAL": 4,
+      "NORMAL": 8,
+      "HARD": 13,
+      "EXPERT": 19
+    },
+    "sortNumber": 66,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Into The Fire",
+    "artists": [
+      "Cosmograph",
+      "Victor Barba"
+    ],
+    "album": {
+      "name": "TRACING THE STARS",
+      "code": "TTS"
+    },
+    "access": "free",
+    "charts": {
+      "CASUAL": 5,
+      "NORMAL": 11,
+      "HARD": 15,
+      "EXPERT": 18
+    },
+    "sortNumber": 67,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Raven",
+    "artists": [
+      "Oliver Good"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.1",
+      "code": "TTS_SB_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 3,
+      "NORMAL": 8,
+      "HARD": 14,
+      "EXPERT": 18
+    },
+    "sortNumber": 68,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Everglow",
+    "artists": [
+      "Hyunmin Cho"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.1",
+      "code": "TTS_SB_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 2,
+      "NORMAL": 5,
+      "HARD": 8,
+      "EXPERT": 13
+    },
+    "sortNumber": 69,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Silent Street Battle",
+    "artists": [
+      "Hyunmin Cho",
+      "seibin"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.1",
+      "code": "TTS_SB_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 1,
+      "NORMAL": 6,
+      "HARD": 11,
+      "EXPERT": 15
+    },
+    "sortNumber": 70,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Flooded Commercial Sector",
+    "artists": [
+      "Oliver Good"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.1",
+      "code": "TTS_SB_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 1,
+      "NORMAL": 5,
+      "HARD": 8,
+      "EXPERT": 11
+    },
+    "sortNumber": 71,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Karakuri",
+    "artists": [
+      "seibin"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.1",
+      "code": "TTS_SB_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 1,
+      "NORMAL": 6,
+      "HARD": 11,
+      "EXPERT": 16
+    },
+    "sortNumber": 72,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Don't Forget Me",
+    "artists": [
+      "Youngjee Lee"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.1",
+      "code": "TTS_SB_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 2,
+      "NORMAL": 5,
+      "HARD": 10,
+      "EXPERT": 15
+    },
+    "sortNumber": 73,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Belial",
+    "artists": [
+      "Muwen"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.1",
+      "code": "TTS_SB_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 4,
+      "NORMAL": 9,
+      "HARD": 13,
+      "EXPERT": 17
+    },
+    "sortNumber": 74,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Stalker",
+    "artists": [
+      "Keita Inoue"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.1",
+      "code": "TTS_SB_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 4,
+      "NORMAL": 8,
+      "HARD": 13,
+      "EXPERT": 17
+    },
+    "sortNumber": 75,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Mann (Phase Mixed)",
+    "artists": [
+      "Youngjee Lee"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.1",
+      "code": "TTS_SB_V1"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 4,
+      "NORMAL": 9,
+      "HARD": 14,
+      "EXPERT": 18
+    },
+    "sortNumber": 76,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "The Song of The Traveler",
+    "artists": [
+      "Mothervibes"
+    ],
+    "album": {
+      "name": "TRACING THE STARS",
+      "code": "TTS"
+    },
+    "access": "free",
+    "charts": {
+      "CASUAL": 1,
+      "NORMAL": 4,
+      "HARD": 7,
+      "EXPERT": 10
+    },
+    "sortNumber": 77,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "TAKE ME AWAY",
+    "artists": [
+      "Youngjee Lee"
+    ],
+    "album": {
+      "name": "TRACING THE STARS",
+      "code": "TTS"
+    },
+    "access": "free",
+    "charts": {
+      "CASUAL": 2,
+      "NORMAL": 6,
+      "HARD": 11,
+      "EXPERT": 15
+    },
+    "sortNumber": 78,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "SCARLET (Phase 2)",
+    "artists": [
+      "Hyunmin Cho",
+      "Youngjee Lee"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.2",
+      "code": "TTS_SB_V2"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 3,
+      "NORMAL": 8,
+      "HARD": 12,
+      "EXPERT": 16
+    },
+    "sortNumber": 79,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "BLUR",
+    "artists": [
+      "Youngjee Lee"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.2",
+      "code": "TTS_SB_V2"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 2,
+      "NORMAL": 7,
+      "HARD": 13,
+      "EXPERT": 15
+    },
+    "sortNumber": 80,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Star Descent",
+    "artists": [
+      "Oliver Good",
+      "Keita Inoue"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.2",
+      "code": "TTS_SB_V2"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 3,
+      "NORMAL": 7,
+      "HARD": 11,
+      "EXPERT": 16
+    },
+    "sortNumber": 81,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "BATTLE DROID",
+    "artists": [
+      "Youngjee Lee"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.2",
+      "code": "TTS_SB_V2"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 4,
+      "NORMAL": 9,
+      "HARD": 13,
+      "EXPERT": 17
+    },
+    "sortNumber": 82,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Abaddon",
+    "artists": [
+      "ko.yo"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.2",
+      "code": "TTS_SB_V2"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 5,
+      "NORMAL": 9,
+      "HARD": 13,
+      "EXPERT": 18
+    },
+    "sortNumber": 83,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Tachy Mode",
+    "artists": [
+      "Hyunmin Cho",
+      "Youngkyong Choi"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.2",
+      "code": "TTS_SB_V2"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 4,
+      "NORMAL": 8,
+      "HARD": 12,
+      "EXPERT": 17
+    },
+    "sortNumber": 84,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Dawn (Lively)",
+    "artists": [
+      "seibin"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.2",
+      "code": "TTS_SB_V2"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 2,
+      "NORMAL": 5,
+      "HARD": 9,
+      "EXPERT": 13
+    },
+    "sortNumber": 85,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Pathway to Atelier",
+    "artists": [
+      "Hyunmin Cho"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.2",
+      "code": "TTS_SB_V2"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 1,
+      "NORMAL": 4,
+      "HARD": 10,
+      "EXPERT": 16
+    },
+    "sortNumber": 86,
+    "tags": [
+      "Battle"
+    ]
+  },
+  {
+    "title": "Hypertube",
+    "artists": [
+      "seibin"
+    ],
+    "album": {
+      "name": "T.T.S. STELLAR BLADE V.2",
+      "code": "TTS_SB_V2"
+    },
+    "access": "paid",
+    "charts": {
+      "CASUAL": 3,
+      "NORMAL": 7,
+      "HARD": 12,
+      "EXPERT": 16
+    },
+    "sortNumber": 87,
+    "tags": [
+      "Battle"
+    ]
   }
 ]
